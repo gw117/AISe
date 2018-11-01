@@ -9,9 +9,10 @@ var output = "";
 var logicordershift = 1
 
 
-	edt = app.CreateTextEdit( "", 0.96, 0.8 ); 
+	edt = app.CreateTextEdit( "", 0.96, 0.8); 
 	edt.SetTextSize(12 );
 	lay.AddChild( edt );
+
 
 
 	btnLoad = app.CreateButton( "Actuate", 0.23, 0.1 ); 
@@ -239,8 +240,16 @@ output += ".";
 
 	var pitch = 1.0, speed = 1.0;
 	app.TextToSpeech(output, pitch, speed );
-output = "";
+
+
+var outputdet = output.split(" ");
+var strlist ="";
+for( xxx = 0; xxx < outputdet.length;xxx++){
+strlist += outputdet[xxx] += "\n";
 }
+app.WriteFile( "/sdcard/function.txt",strlist );
+}
+output = "";
 q = 1;
 break;
 }
