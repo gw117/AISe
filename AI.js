@@ -41,7 +41,10 @@ x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
 for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
-if (terminator.length > 128){
+if (terminator.length > 64){
+
+	var pitch = 1.0, speed = 1.0;
+	app.TextToSpeech(output, pitch, speed );
 output = "";
 break;
 }
@@ -252,8 +255,6 @@ break
 
 
 
-	var pitch = 1.0, speed = 1.0;
-	app.TextToSpeech(output, pitch, speed );
 
 }
 }
