@@ -1,16 +1,17 @@
 //concepts not psychology
 var output = "";
-var update = "";
+var update = "begin program: ";
 function OnStart()
 {
+
 	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
 var output = "";
 var logicordershift = 1
 
 
 	edt = app.CreateTextEdit( "", 0.96, 0.8 ); 
-	edt.SetBackColor( "#333333" );
-	lay.AddChild( edt ); 
+	edt.SetTextSize(12 );
+	lay.AddChild( edt );
 
 
 	btnLoad = app.CreateButton( "Actuate", 0.23, 0.1 ); 
@@ -28,7 +29,7 @@ var logicordershift = 1
 function btnLoad_OnTouch() 
 { 
 
-
+app.ShowPopup("initialising" );
 while(0==0){
 
 var txt = app.ReadFile( "/sdcard/philosophy.txt" );
@@ -38,6 +39,14 @@ var sentence = txt.split(".");
 
 x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
 for(var x = 0;x < sentence.length;x++){
+
+terminator = output.split(" ");
+if (terminator.length > 128){
+output = "";
+break;
+}
+
+
 var q = 0;
 var func = app.ReadFile( "/sdcard/parameters.txt" );
 
@@ -71,6 +80,26 @@ if (q == 1){
 break
 }
 }
+
+
+var q = 0
+var sent = sentence[x];
+var word = sent.split(" ");
+for(var a = 0;a < word.length;a++){
+  var txt = app.ReadFile( "/sdcard/noun.txt" );
+var wordstr  = word[a];
+var vocab = txt.split("\n");
+for(var b = 0; b < vocab.length;b++){
+if(wordstr == vocab[b]){
+if (output.indexOf(wordstr) == -1){
+output += wordstr+" ";
+edt.SetText(output);
+app.SetClipboardText( output);
+}
+}
+}
+}
+
 var q = 0;
 var sent = sentence[x];
 var word = sent.split(" ");
@@ -129,24 +158,6 @@ break
 }
 }
 
-
-var q = 0
-var sent = sentence[x];
-var word = sent.split(" ");
-for(var a = 0;a < word.length;a++){
-  var txt = app.ReadFile( "/sdcard/noun.txt" );
-var wordstr  = word[a];
-var vocab = txt.split("\n");
-for(var b = 0; b < vocab.length;b++){
-if(wordstr == vocab[b]){
-if (output.indexOf(wordstr) == -1){
-output += wordstr+" ";
-edt.SetText(output);
-app.SetClipboardText( output);
-}
-}
-}
-}
 
 var q = 0;
 var func = app.ReadFile( "/sdcard/extroversion.txt" );
@@ -241,9 +252,8 @@ break
 
 
 
-
-
-
+	var pitch = 1.0, speed = 1.0;
+	app.TextToSpeech(output, pitch, speed );
 
 }
 }
