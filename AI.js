@@ -42,8 +42,6 @@ for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
 if (terminator.length > 32){
-	var pitch = 1.0, speed = 1.0;
-	app.TextToSpeech(output, pitch, speed );
 output = "";
 break;
 }
@@ -238,6 +236,10 @@ var word = sent.split(" ");
 x = c;
 if (q == 0){
 output += ".";
+
+	var pitch = 1.0, speed = 1.0;
+	app.TextToSpeech(output, pitch, speed );
+output = "";
 }
 q = 1;
 break;
