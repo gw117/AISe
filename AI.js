@@ -1,15 +1,31 @@
 //concepts not psychology
 var output = "";
 var update = "begin program: ";
+var sentence1 = "";
+var sentence2 = "";
+var sentence = "";
+var filesave = ""
 function OnStart()
 {
 
+
+app.ShowPopup("initialising" );
+
+
+
 	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+
+
+	img = app.CreateImage( "/Sys/Img/Hello.png", 0.4, -1 );
+	img.Scale( 0.3, 0.3 );
+	img.Move( 0, 0.15 );
+	lay.AddChild( img );
+
 var output = "";
 var logicordershift = 1
 
 
-	edt = app.CreateTextEdit( "", 0.96, 0.8); 
+	edt = app.CreateTextEdit( "", 0.96, 0.6); 
 	edt.SetTextSize(12 );
 	lay.AddChild( edt );
 
@@ -25,25 +41,32 @@ var logicordershift = 1
 
 
 
+var txt2 = app.ReadFile( "/sdcard/ethics.txt" );
 
 
 function btnLoad_OnTouch() 
 { 
 
-app.ShowPopup("initialising" );
+
 while(0==0){
-
 var txt = app.ReadFile( "/sdcard/philosophy.txt" );
-
-
-var sentence = txt.split(".");
-
+sentence = txt.split(".");
 x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
 for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
-if (terminator.length > 32){
+if (terminator.length > 16){
+filesave += output + "\n";
+
+
+
+
+
+img.Rotate( x/16.76);
 output = "";
+
+app.WriteFile( "/sdcard/output.txt",filesave, "append" );
+
 break;
 }
 
@@ -143,7 +166,7 @@ if (update.length > 1){
 var updater = app.ReadFile( "/sdcard/parameters.txt" );
 updater+= "\n" + update;
 app.WriteFile( "/sdcard/parameters.txt",updater );
-app.ShowPopup(update + " learned"  );
+
 }
 }
 q = 1;
@@ -239,7 +262,7 @@ if (q == 0){
 output += ".";
 
 	var pitch = 1.0, speed = 1.0;
-	app.TextToSpeech(output, pitch, speed );
+//	app.TextToSpeech(output, pitch, speed );
 
 
 var outputdet = output.split(" ");
@@ -249,7 +272,9 @@ strlist += outputdet[xxx] += "\n";
 }
 app.WriteFile( "/sdcard/function.txt",strlist );
 }
-output = "";
+output += "\n";
+
+
 q = 1;
 break;
 }
