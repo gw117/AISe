@@ -16,10 +16,6 @@ app.ShowPopup("initialising" );
 	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
 
 
-	img = app.CreateImage( "/Sys/Img/Hello.png", 0.4, -1 );
-	img.Scale( 0.3, 0.3 );
-	img.Move( 0, 0.15 );
-	lay.AddChild( img );
 
 var output = "";
 var logicordershift = 1
@@ -39,32 +35,19 @@ var logicordershift = 1
 }
 
 
-
-
-var txt2 = app.ReadFile( "/sdcard/ethics.txt" );
-
-
 function btnLoad_OnTouch() 
 { 
 
+ output = "";
 
-while(0==0){
 var txt = app.ReadFile( "/sdcard/philosophy.txt" );
 sentence = txt.split(".");
 x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
 for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
-if (terminator.length > 16){
+if (terminator.length > 1){
 filesave += output + "\n";
-
-
-
-
-
-img.Rotate( x/16.76);
-output = "";
-
 app.WriteFile( "/sdcard/output.txt",filesave, "append" );
 
 break;
@@ -292,11 +275,10 @@ break
 
 
 }
-}
 
 
 
-
+app.ShowPopup("done" );
 
 
 }
