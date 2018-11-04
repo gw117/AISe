@@ -12,8 +12,8 @@ function OnStart()
 app.ShowPopup("initialising" );
 
 
-
 	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+
 
 
 
@@ -40,6 +40,7 @@ function btnLoad_OnTouch()
 
  output = "";
 
+
 var txt = app.ReadFile( "/sdcard/philosophy.txt" );
 sentence = txt.split(".");
 x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
@@ -55,7 +56,7 @@ break;
 
 
 var q = 0;
-var func = app.ReadFile( "/sdcard/parameters.txt" );
+var func = app.ReadFile( "/sdcard/noun.txt" );
 
 
 var functionorder = func.split("\n");
@@ -73,7 +74,7 @@ var word = sent.split(" ");
 x = c;
 
 if (q == 0){
-output += "";
+output += word[a] + ":";
 }
 q = 1;
 break;
@@ -117,7 +118,7 @@ var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
 if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
-output += wordstr+" ";
+output += wordstr+",";
 edt.SetText(output);
 app.SetClipboardText( output);
 }
@@ -128,7 +129,7 @@ app.SetClipboardText( output);
 var q = 0;
 
 
-var func = app.ReadFile( "/sdcard/function.txt" );
+var func = app.ReadFile( "/sdcard/parameters.txt" );
 var functionorder = func.split("\n");
 for (var c = x;c < sentence.length;c++){
 
@@ -226,52 +227,6 @@ if (q == 1){
 break
 }
 }
-var q = 0;
-var func = app.ReadFile( "/sdcard/function.txt" );
-var functionorder = func.split("\n");
-for (var c = x;c < sentence.length;c++){
-
-c =  Math.floor(Math.random() * (sentence.length)) + 0;
-var sent = sentence[c];
-var word = sent.split(" ");
-for(var a = 0;a < word.length;a++){
-for(var b = 0; b < functionorder.length;b++){
-if(sent.indexOf(functionorder[b]) > -1){
-var sent = sentence[c];
-var word = sent.split(" ");
-//a = b //functionorder
-x = c;
-if (q == 0){
-output += ".";
-
-	var pitch = 1.0, speed = 1.0;
-//	app.TextToSpeech(output, pitch, speed );
-
-
-var outputdet = output.split(" ");
-var strlist ="";
-for( xxx = 0; xxx < outputdet.length;xxx++){
-strlist += outputdet[xxx] += "\n";
-}
-app.WriteFile( "/sdcard/function.txt",strlist );
-}
-output += "\n";
-
-
-q = 1;
-break;
-}
-}
-if (q == 1){
-break
-}
-}
-if (q == 1){
-break
-}
-}
-
-
 
 
 }
