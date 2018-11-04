@@ -1,4 +1,4 @@
-//concepts not psychology
+//neural network function organiser
 var output = "";
 var update = "begin program: ";
 var sentence1 = "";
@@ -38,10 +38,11 @@ var logicordershift = 1
 function btnLoad_OnTouch() 
 { 
 
+
+
+while(0==0){
  output = "";
-
-
-var txt = app.ReadFile( "/sdcard/philosophy.txt" );
+var txt = app.ReadFile( "/sdcard/undefined.txt" );
 sentence = txt.split(".");
 x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
 for(var x = 0;x < sentence.length;x++){
@@ -50,7 +51,6 @@ terminator = output.split(" ");
 if (terminator.length > 1){
 filesave += output + "\n";
 app.WriteFile( "/sdcard/output.txt",filesave, "append" );
-
 break;
 }
 
@@ -74,7 +74,7 @@ var word = sent.split(" ");
 x = c;
 
 if (q == 0){
-output += word[a] + ":";
+output += "";
 }
 q = 1;
 break;
@@ -118,7 +118,7 @@ var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
 if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
-output += wordstr+",";
+output += wordstr+" ";
 edt.SetText(output);
 app.SetClipboardText( output);
 }
@@ -233,7 +233,13 @@ break
 
 
 
-app.ShowPopup("done" );
+app.ShowPopup("Activation" );
 
-
+var download = output.split(" ");
+var refreshermind = "";
+for (var mind = 0; mind < download.length;mind++){
+refreshermind+=  download[mind] + "\n";
+app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
+}
+}
 }
