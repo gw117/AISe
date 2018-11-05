@@ -56,7 +56,7 @@ x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
 for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
-if (terminator.length > 1){
+if (terminator.length > 3){
 filesave += output + "\n";
 if (stage == depth){
 x = pos-pos/5;
@@ -66,7 +66,11 @@ output2 += "\n";
 
 
 if (stage  == 0){
-output += ", do you?";
+
+var interact = ", do you?.do you believe that?.did you know that?.how do you respond?";
+interact = interact.split(".");
+x =  Math.floor(Math.random() * (interact.length - 0 + 1)) + 0
+output += interact[x];
 stage++;
 }
 stage++
