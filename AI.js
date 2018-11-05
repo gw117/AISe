@@ -6,8 +6,9 @@ var sentence2 = "";
 var sentence = "";
 var filesave = ""
 var stage = 0;
-var depth = 1;
+var depth = 3;
 var pos = 0;
+var output2 = "";
 function OnStart()
 {
 
@@ -24,9 +25,13 @@ var output = "";
 var logicordershift = 1
 
 
-	edt = app.CreateTextEdit( "", 0.96, 0.8); 
+	edt = app.CreateTextEdit( "", 0.96, 0.2); 
 	edt.SetTextSize(12 );
 	lay.AddChild( edt );
+
+	edt2= app.CreateTextEdit( "", 0.96, 0.5); 
+	edt2.SetTextSize(12 );
+	lay.AddChild( edt2 );
 
 
 	btnLoad = app.CreateButton( "Actuate", 0.23, 0.1 ); 
@@ -44,7 +49,8 @@ function btnLoad_OnTouch()
 
 while(0==0){
 output = "";
-var txt = app.ReadFile( "/sdcard/undefined.txt" );
+
+var txt = app.ReadFile( "/sdcard/philosophy.txt" );
 sentence = txt.split(".");
 x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
 for(var x = 0;x < sentence.length;x++){
@@ -55,6 +61,13 @@ filesave += output + "\n";
 if (stage == depth){
 x = pos-pos/5;
 stage = 0;
+output2 += "\n";
+}
+
+
+if (stage  == 0){
+output += ", do you?";
+stage++;
 }
 stage++
 app.WriteFile( "/sdcard/output.txt",filesave, "append" );
@@ -254,6 +267,13 @@ for (var mind = 0; mind < download.length;mind++){
 refreshermind+=  download[mind] + "\n";
 app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
 }
- output += ".\n";
+
+if (output.indexOf("?") > -1){
+output2+= ".";
+
+}
+ output2 += output +  "\n";
+ 
+ edt2.SetText(output2);
 }
 }
