@@ -5,6 +5,9 @@ var sentence1 = "";
 var sentence2 = "";
 var sentence = "";
 var filesave = ""
+var stage = 0;
+var depth = 1;
+var pos = 0;
 function OnStart()
 {
 
@@ -21,10 +24,9 @@ var output = "";
 var logicordershift = 1
 
 
-	edt = app.CreateTextEdit( "", 0.96, 0.6); 
+	edt = app.CreateTextEdit( "", 0.96, 0.8); 
 	edt.SetTextSize(12 );
 	lay.AddChild( edt );
-
 
 
 	btnLoad = app.CreateButton( "Actuate", 0.23, 0.1 ); 
@@ -38,10 +40,10 @@ var logicordershift = 1
 function btnLoad_OnTouch() 
 { 
 
-
+ var db2 = "";
 
 while(0==0){
- output = "";
+output = "";
 var txt = app.ReadFile( "/sdcard/undefined.txt" );
 sentence = txt.split(".");
 x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
@@ -50,6 +52,11 @@ for(var x = 0;x < sentence.length;x++){
 terminator = output.split(" ");
 if (terminator.length > 1){
 filesave += output + "\n";
+if (stage == depth){
+x = pos-pos/5;
+stage = 0;
+}
+stage++
 app.WriteFile( "/sdcard/output.txt",filesave, "append" );
 break;
 }
@@ -71,7 +78,9 @@ if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
-x = c;
+x = c/5;
+pos = c;
+x = Math.round(x);
 
 if (q == 0){
 output += "";
@@ -142,7 +151,9 @@ if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
-x = c;
+x = c/5;
+c = pos;
+x = Math.round(x);
 if (q == 0){
 output += "";
 
@@ -230,9 +241,11 @@ break
 
 
 }
+/*
+	var pitch = 1.0, speed = 1.0;
+	app.TextToSpeech( output, pitch, speed );
 
-
-
+*/
 app.ShowPopup("Activation" );
 
 var download = output.split(" ");
@@ -241,5 +254,6 @@ for (var mind = 0; mind < download.length;mind++){
 refreshermind+=  download[mind] + "\n";
 app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
 }
+ output += ".\n";
 }
 }
