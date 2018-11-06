@@ -50,7 +50,8 @@ function btnLoad_OnTouch()
 while(0==0){
 output = "";
 
-var txt = app.ReadFile( "/sdcard/philosophy.txt" );
+var txt = app.ReadFile( "/sdcard/choice.txt" );
+txt += app.ReadFile( "/sdcard/philosophy.txt" );
 sentence = txt.split(".");
 x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
 for(var x = 0;x < sentence.length;x++){
@@ -67,9 +68,9 @@ output2 += "\n";
 
 if (stage  == 0){
 
-var interact = ", do you?.do you believe that?.did you know that?.how do you respond?";
+var interact = ", do you?.,do you believe that?.,did you know that?.,how do you respond?";
 interact = interact.split(".");
-x =  Math.floor(Math.random() * (interact.length - 0 + 1)) + 0
+x =  Math.floor(Math.random() * (interact.length)) + 0
 output += interact[x];
 stage++;
 }
@@ -120,7 +121,7 @@ var q = 0
 var sent = sentence[x];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
-  var txt = app.ReadFile( "/sdcard/noun.txt" );
+  var txt = app.ReadFile( "/sdcard/verb.txt" );
 var wordstr  = word[a];
 var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
@@ -138,7 +139,7 @@ var q = 0;
 var sent = sentence[x];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
-  var txt = app.ReadFile( "/sdcard/verb.txt" );
+  var txt = app.ReadFile( "/sdcard/noun.txt" );
 var wordstr  = word[a];
 var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
