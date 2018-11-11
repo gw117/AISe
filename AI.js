@@ -66,22 +66,13 @@ output2 += "\n";
 }
 
 
-if (stage  == 0){
-
-var interact = ", do you?.,do you believe that?.,did you know that?.,how do you respond?";
-interact = interact.split(".");
-x =  Math.floor(Math.random() * (interact.length)) + 0
-output += interact[x];
-stage++;
-}
-stage++
 app.WriteFile( "/sdcard/output.txt",filesave, "append" );
 break;
 }
 
 
 var q = 0;
-var func = app.ReadFile( "/sdcard/noun.txt" );
+var func = app.ReadFile( "/sdcard/function.txt" );
 
 
 var functionorder = func.split("\n");
@@ -197,7 +188,7 @@ break
 
 
 var q = 0;
-var func = app.ReadFile( "/sdcard/extroversion.txt" );
+var func = app.ReadFile( "/sdcard/noun.txt" );
 var functionorder = func.split("\n");
 for (var c = x;c < sentence.length;c++){
 
@@ -262,9 +253,9 @@ break
 /*
 	var pitch = 1.0, speed = 1.0;
 	app.TextToSpeech( output, pitch, speed );
-
 */
-app.ShowPopup("Activation" );
+
+
 
 var download = output.split(" ");
 var refreshermind = "";
