@@ -25,11 +25,14 @@ var output = "";
 var logicordershift = 1
 
 
+	edtin  = app.CreateTextEdit( "", 0.96, 0.1); 
+	edtin.SetTextSize(12 );
+	lay.AddChild( edtin );
 	edt = app.CreateTextEdit( "", 0.96, 0.2); 
 	edt.SetTextSize(12 );
 	lay.AddChild( edt );
 
-	edt2= app.CreateTextEdit( "", 0.96, 0.5); 
+	edt2= app.CreateTextEdit( "", 0.96, 0.4); 
 	edt2.SetTextSize(12 );
 	lay.AddChild( edt2 );
 
@@ -50,10 +53,13 @@ function btnLoad_OnTouch()
 while(0==0){
 output = "";
 
-var txt = app.ReadFile( "/sdcard/choice.txt" );
-txt += app.ReadFile( "/sdcard/philosophy.txt" );
+var txt = app.ReadFile( "/sdcard/undefined.txt" );
 sentence = txt.split(".");
-x =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
+
+var input = edtin.GetText();
+x = txt.indexOf(input);
+
+
 for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
