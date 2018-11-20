@@ -26,14 +26,14 @@ var logicordershift = 1
 
 
 	edtin  = app.CreateTextEdit( "", 0.96, 0.1); 
-	edtin.SetTextSize(12 );
+	edtin.SetTextSize(10);
 	lay.AddChild( edtin );
-	edt = app.CreateTextEdit( "", 0.96, 0.2); 
-	edt.SetTextSize(12 );
+	edt = app.CreateTextEdit( "", 0.96, 0.4); 
+	edt.SetTextSize(10 );
 	lay.AddChild( edt );
 
 	edt2= app.CreateTextEdit( "", 0.96, 0.4); 
-	edt2.SetTextSize(12 );
+	edt2.SetTextSize(10 );
 	lay.AddChild( edt2 );
 
 
@@ -53,14 +53,15 @@ function btnLoad_OnTouch()
 while(0==0){
 output = "";
 
-var txt = app.ReadFile( "/sdcard/undefined.txt" );
+var txt = app.ReadFile( "/sdcard/chat.txt" );
+
 sentence = txt.split(".");
 
 var input = edtin.GetText();
 x = txt.indexOf(input);
 
 
-for(var x = 0;x < sentence.length;x++){
+for(var x = x;x < sentence.length;x++){
 
 terminator = output.split(" ");
 if (terminator.length > 3){
@@ -93,7 +94,7 @@ if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
-x = c/5;
+x = c;
 pos = c;
 x = Math.round(x);
 
@@ -118,7 +119,7 @@ var q = 0
 var sent = sentence[x];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
-  var txt = app.ReadFile( "/sdcard/verb.txt" );
+  var txt = app.ReadFile( "/sdcard/function.txt" );
 var wordstr  = word[a];
 var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
@@ -140,7 +141,7 @@ for(var a = 0;a < word.length;a++){
 var wordstr  = word[a];
 var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
-if(wordstr == vocab[b]){
+if(wordstr > vocab[b]){
 if (output.indexOf(wordstr) == -1){
 output += wordstr+" ";
 edt.SetText(output);
@@ -166,7 +167,7 @@ if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
-x = c/5;
+x = c;
 c = pos;
 x = Math.round(x);
 if (q == 0){
@@ -194,7 +195,7 @@ break
 
 
 var q = 0;
-var func = app.ReadFile( "/sdcard/noun.txt" );
+var func = app.ReadFile( "/sdcard/verb.txt" );
 var functionorder = func.split("\n");
 for (var c = x;c < sentence.length;c++){
 
@@ -207,7 +208,7 @@ if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
-x = c;
+x = c/5;
 if (q == 0){
 output += "";
 }
@@ -237,7 +238,7 @@ for(var a = 0;a < word.length;a++){
 var wordstr  = word[a];
 var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
-if(wordstr == vocab[b]){
+if(wordstr > vocab[b]){
 if (output.indexOf(wordstr) == -1){
 output += wordstr+" ";
 update = wordstr;
@@ -277,5 +278,10 @@ output2+= ".";
  output2 += output +  "\n";
  
  edt2.SetText(output2);
+
+var procarray = output.split(" ");
+sel  =  Math.floor(Math.random() * (procarray.length)) + 0
+
+x = txt.indexOf(procarray[sel]);
 }
 }
