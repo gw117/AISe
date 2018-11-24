@@ -25,9 +25,6 @@ var output = "";
 var logicordershift = 1
 
 
-	edtin  = app.CreateTextEdit( "", 0.96, 0.1); 
-	edtin.SetTextSize(10);
-	lay.AddChild( edtin );
 	edt = app.CreateTextEdit( "", 0.96, 0.4); 
 	edt.SetTextSize(10 );
 	lay.AddChild( edt );
@@ -53,15 +50,14 @@ function btnLoad_OnTouch()
 while(0==0){
 output = "";
 
-var txt = app.ReadFile( "/sdcard/chat.txt" );
+var txt = app.ReadFile( "/sdcard/philosophy.txt" );
 
 sentence = txt.split(".");
 
-var input = edtin.GetText();
-x = txt.indexOf(input);
 
 
-for(var x = x;x < sentence.length;x++){
+
+for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
 if (terminator.length > 3){
@@ -126,6 +122,7 @@ for(var b = 0; b < vocab.length;b++){
 if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
 output += wordstr+" ";
+
 edt.SetText(output);
 app.SetClipboardText( output);
 }
@@ -137,13 +134,14 @@ var q = 0;
 var sent = sentence[x];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
-  var txt = app.ReadFile( "/sdcard/noun.txt" );
+  var txt = app.ReadFile( "/sdcard/verb.txt" );
 var wordstr  = word[a];
 var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
 if(wordstr > vocab[b]){
 if (output.indexOf(wordstr) == -1){
 output += wordstr+" ";
+
 edt.SetText(output);
 app.SetClipboardText( output);
 }
@@ -195,7 +193,7 @@ break
 
 
 var q = 0;
-var func = app.ReadFile( "/sdcard/verb.txt" );
+var func = app.ReadFile( "/sdcard/noun.txt" );
 var functionorder = func.split("\n");
 for (var c = x;c < sentence.length;c++){
 
@@ -208,7 +206,6 @@ if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
-x = c/5;
 if (q == 0){
 output += "";
 }
@@ -238,9 +235,10 @@ for(var a = 0;a < word.length;a++){
 var wordstr  = word[a];
 var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
-if(wordstr > vocab[b]){
+if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
 output += wordstr+" ";
+
 update = wordstr;
 edt.SetText(output);
 app.SetClipboardText( output);
@@ -257,10 +255,8 @@ break
 
 
 }
-/*
-	var pitch = 1.0, speed = 1.0;
-	app.TextToSpeech( output, pitch, speed );
-*/
+
+
 
 
 
@@ -279,6 +275,9 @@ output2+= ".";
  
  edt2.SetText(output2);
 
+	var pitch = 1.0, speed = 1.0;
+	app.TextToSpeech(output, pitch, speed );
+	
 var procarray = output.split(" ");
 sel  =  Math.floor(Math.random() * (procarray.length)) + 0
 
