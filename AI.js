@@ -124,7 +124,7 @@ if (output.indexOf(wordstr) == -1){
 output += wordstr+" ";
 
 edt.SetText(output);
-app.SetClipboardText( output);
+
 }
 }
 }
@@ -143,7 +143,7 @@ if (output.indexOf(wordstr) == -1){
 output += wordstr+" ";
 
 edt.SetText(output);
-app.SetClipboardText( output);
+
 }
 }
 }
@@ -241,7 +241,7 @@ output += wordstr+" ";
 
 update = wordstr;
 edt.SetText(output);
-app.SetClipboardText( output);
+
 q = 1;
 }
 }
@@ -272,7 +272,7 @@ output2+= ".";
 
 }
  output2 += output +  "\n";
- 
+ app.SetClipboardText( output2);
  edt2.SetText(output2);
 /*
 	var pitch = 1.0, speed = 1.0;
