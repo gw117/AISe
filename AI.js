@@ -6,7 +6,7 @@ var sentence2 = "";
 var sentence = "";
 var filesave = ""
 var stage = 0;
-var depth = 3;
+var depth = 10;
 var pos = 0;
 var output2 = "";
 function OnStart()
@@ -25,12 +25,12 @@ var output = "";
 var logicordershift = 1
 
 
-	edt = app.CreateTextEdit( "", 0.96, 0.4); 
-	edt.SetTextSize(10 );
+	edt = app.CreateTextEdit( "", 0.96, 0.7); 
+	edt.SetTextSize(8 );
 	lay.AddChild( edt );
 
-	edt2= app.CreateTextEdit( "", 0.96, 0.4); 
-	edt2.SetTextSize(10 );
+	edt2= app.CreateTextEdit( "", 0.96, 0.2); 
+	edt2.SetTextSize(8);
 	lay.AddChild( edt2 );
 
 
@@ -60,7 +60,7 @@ sentence = txt.split(".");
 for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
-if (terminator.length > 3){
+if (terminator.length > 40){
 filesave += output + "\n";
 if (stage == depth){
 x = pos-pos/5;
@@ -70,16 +70,20 @@ output2 += "\n";
 
 
 app.WriteFile( "/sdcard/output.txt",filesave, "append" );
+
+//search and selector
+
+
 break;
 }
 
-
+stage++;
 var q = 0;
 var func = app.ReadFile( "/sdcard/function.txt" );
 
 
 var functionorder = func.split("\n");
-for (var c = x;c < sentence.length;c++){
+for (var c = 0;c < sentence.length;c++){
 
 c =  Math.floor(Math.random() * (sentence.length)) + 0;
 var sent = sentence[c];
@@ -164,7 +168,7 @@ for(var b = 0; b < functionorder.length;b++){
 if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
-//a = b //functionorder
+//a = b //functionorder x
 x = c;
 c = pos;
 x = Math.round(x);
@@ -205,7 +209,7 @@ for(var b = 0; b < functionorder.length;b++){
 if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
-//a = b //functionorder
+//a = b //functionorder x
 if (q == 0){
 output += "";
 }
