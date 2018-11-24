@@ -274,10 +274,10 @@ output2+= ".";
  output2 += output +  "\n";
  
  edt2.SetText(output2);
-
+/*
 	var pitch = 1.0, speed = 1.0;
 	app.TextToSpeech(output, pitch, speed );
-	
+	*/
 var procarray = output.split(" ");
 sel  =  Math.floor(Math.random() * (procarray.length)) + 0
 
