@@ -1,14 +1,19 @@
 //neural network function organiser
+var init;
+var corr = "";
+var qq = 0;
 var output = "";
-var update = "begin program: ";
+var update = "";
 var sentence1 = "";
 var sentence2 = "";
 var sentence = "";
 var filesave = ""
 var stage = 0;
+var bound = 0;
 var depth = 10;
 var pos = 0;
 var output2 = "";
+var semanticspread = 5
 function OnStart()
 {
 
@@ -47,12 +52,14 @@ function btnLoad_OnTouch()
 
  var db2 = "";
 
-while(0==0){
-output = "";
+
 
 var txt = app.ReadFile( "/sdcard/philosophy.txt" );
-
 sentence = txt.split(".");
+
+
+while(0==0){
+output = "";
 
 
 
@@ -60,18 +67,27 @@ sentence = txt.split(".");
 for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
-if (terminator.length > 40){
+if (terminator.length > 20){
 filesave += output + "\n";
 if (stage == depth){
 x = pos-pos/5;
 stage = 0;
 output2 += "\n";
+
+
+ 
+ txt = app.ReadFile( "/sdcard/philosophy.txt" );
+
+sentence = txt.split(".");
 }
 
 
 app.WriteFile( "/sdcard/output.txt",filesave, "append" );
 
 //search and selector
+
+
+
 
 
 break;
@@ -278,13 +294,36 @@ output2+= ".";
  output2 += output +  "\n";
  app.SetClipboardText( output2);
  edt2.SetText(output2);
+ txt = output2;
+ if (bound == 0){
+ init = output2;
+
+ }
 /*
 	var pitch = 1.0, speed = 1.0;
 	app.TextToSpeech(output, pitch, speed );
 	*/
-var procarray = output.split(" ");
-sel  =  Math.floor(Math.random() * (procarray.length)) + 0
+	
+	if (bound == 1){
 
-x = txt.indexOf(procarray[sel]);
+	
+for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){
+var check = sentence[sentiencescan];
+var procarray = output2.split(" ");
+var cyberneticAlpha = procarray[procarray.length]
+var cyberneticBeta = procarray[procarray.length-1]
+nodeAlpha = check.indexOf(cyberneticAlpha);
+nodeBeta = check.indexOf(cyberneticBeta);
+if (nodeAlpha == nodeBeta){
+x = sentiencescan;
+}
+}
+}
+
+
+ if (bound == 0){
+ bound = 1;
+ }
+
 }
 }
