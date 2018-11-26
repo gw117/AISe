@@ -323,7 +323,7 @@ var txt = app.ReadFile( "/sdcard/philosophy.txt" );
 if (trial == 10){
 
  txt = app.ReadFile( "/sdcard/output.txt" );
-app.ShowPopup("Proto emulation" );
+app.ShowPopup("Proto emulation" ); //seperate proto emulation output db from construct output db?
 trial = 0;
 }
 trial++;
