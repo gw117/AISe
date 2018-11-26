@@ -1,6 +1,7 @@
-//neural network function organiser
+var difficulty = 0.3;
 var init;
 var corr = "";
+var trial = 0;
 var qq = 0;
 var output = "";
 var update = "";
@@ -52,9 +53,11 @@ function btnLoad_OnTouch()
 
  var db2 = "";
 
+app.ShowPopup("Construct" );
 
 
 var txt = app.ReadFile( "/sdcard/philosophy.txt" );
+ txt += app.ReadFile( "/sdcard/AI.txt" );
 sentence = txt.split(".");
 
 
@@ -68,21 +71,17 @@ for(var x = 0;x < sentence.length;x++){
 
 terminator = output.split(" ");
 if (terminator.length > 20){
-filesave += output + "\n";
 if (stage == depth){
 x = pos-pos/5;
 stage = 0;
-output2 += "\n";
+output2 += ".\n";
 
 
  
- txt = app.ReadFile( "/sdcard/philosophy.txt" );
+
 
 sentence = txt.split(".");
 }
-
-
-app.WriteFile( "/sdcard/output.txt",filesave, "append" );
 
 //search and selector
 
@@ -173,9 +172,13 @@ var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
 if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
+if(a > word.length/difficulty){
+
+
 output += wordstr+" ";
 
 edt.SetText(output);
+}
 
 }
 }
@@ -192,10 +195,11 @@ var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
 if(wordstr > vocab[b]){
 if (output.indexOf(wordstr) == -1){
+if(a > word.length*difficulty){
 output += wordstr+" ";
 
 edt.SetText(output);
-
+}
 }
 }
 }
@@ -261,12 +265,14 @@ var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
 if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
+if(a > word.length*difficulty){
 output += wordstr+" ";
 
 update = wordstr;
 edt.SetText(output);
 
 q = 1;
+}
 }
 }
 }
@@ -295,10 +301,33 @@ if (output.indexOf("?") > -1){
 output2+= ".";
 
 }
- output2 += output +  "\n";
+ output2 += output +  ".\n";
+
+
+app.WriteFile( "/sdcard/output.txt",output2, "append" );
+
  app.SetClipboardText( output2);
  edt2.SetText(output2);
  txt = output2;
+
+
+
+
+if (trial == 5){
+app.ShowPopup("Construct" );
+var txt = app.ReadFile( "/sdcard/philosophy.txt" );
+ txt += app.ReadFile( "/sdcard/AI.txt" );//enhanced mode, for specific event situation
+}
+
+
+if (trial == 10){
+
+ txt = app.ReadFile( "/sdcard/output.txt" );
+app.ShowPopup("Proto emulation" );
+trial = 0;
+}
+trial++;
+
  if (bound == 0){
  init = output2;
 
@@ -316,10 +345,14 @@ var check = sentence[sentiencescan];
 var procarray = output2.split(" ");
 var cyberneticAlpha = procarray[procarray.length]
 var cyberneticBeta = procarray[procarray.length-1]
+var cyberneticCharlie = procarray[procarray.length-2]
 nodeAlpha = check.indexOf(cyberneticAlpha);
 nodeBeta = check.indexOf(cyberneticBeta);
+nodeCharlie = check.indexOf(cyberneticCharlie);
 if (nodeAlpha == nodeBeta){
+if (nodeAlpha == nodeCharlie){
 x = sentiencescan;
+}
 }
 }
 }
