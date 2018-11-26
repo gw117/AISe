@@ -92,7 +92,7 @@ for(var b = 0; b < functionorder.length;b++){
 if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
-//a = b //functionorder x
+//a = b //functionorder
 if (q == 0){
 output += "";
 }
