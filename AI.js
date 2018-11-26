@@ -254,7 +254,7 @@ trial++;
 	*/
 	
 	if (bound == 1){
-//cyberneticLoop plugset
+//cyberneticloop plugset
 for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){
 var check = sentence[sentiencescan];
 var procarray = output2.split(" ");
