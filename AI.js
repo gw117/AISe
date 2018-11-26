@@ -168,7 +168,7 @@ output += "";
 if (update.length > 1){
 var updater = app.ReadFile( "/sdcard/parameters.txt" );
 updater+= "\n" + update;
-app.WriteFile( "/sdcard/parameters.txt",updater );//logic operation updator
+app.WriteFile( "/sdcard/parameters.txt",updater );//logic operation updater
 }
 }
 q = 1;
