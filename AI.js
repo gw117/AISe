@@ -18,7 +18,7 @@ function OnStart()
 {
 
 
-
+//add logic trace mechanism to produce proofs
 
 app.ShowPopup("initialising" );
 	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
