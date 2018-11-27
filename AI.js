@@ -266,7 +266,7 @@ trial++;
 
 trace += sentence[x];
 
-app.WriteFile( "/sdcard/output.txt",trace, "append" );
+app.WriteFile( "/sdcard/proof.txt",trace, "append" );
 	if (bound == 1){
 //cyberneticloop plugset
 for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){
