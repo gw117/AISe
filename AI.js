@@ -11,19 +11,8 @@ var sentence = "";
 var filesave = ""
 var stage = 0;
 var bound = 0;
-var depth = 10;
 var pos = 0;
 var output2 = "";
-var semanticspread = 5
-var red = 0;
-var blue = 0;
-var green = 0;
-
-
-
-
-
-
 
 function OnStart()
 {
@@ -51,8 +40,7 @@ var logicordershift = 1
 function btnLoad_OnTouch() 
 { 
  var db2 = "";
-var txt = app.ReadFile( "/sdcard/philosophy.txt" );
- 
+var txt = app.ReadFile( "/sdcard/philosophy.txt" ); 
 sentence = txt.split(".");
 while(0==0){
 output = "";
@@ -86,7 +74,6 @@ output += "";
 q = 1;
 break;
 }
-
 }
 }
 if (q == 1){
@@ -216,10 +203,8 @@ if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
 if(a > word.length*difficulty){
 output += wordstr+" ";
-
 update = wordstr;
 edt.SetText(output);
-
 q = 1;
 }
 }
@@ -246,42 +231,33 @@ app.WriteFile( "/sdcard/output.txt",output2, "append" );
  app.SetClipboardText( output2);
  edt2.SetText(output2);
  txt = output2;
-
 if (trial == 1){
 var txt = app.ReadFile( "/sdcard/crit.txt" );
 txt += app.ReadFile( "/sdcard/philosophy.txt" );
 }
-
 if (trial == 2){
-
 var txt = app.ReadFile( "/sdcard/philosophy.txt" );
 }
-
 if (trial == 3){
 var txt = app.ReadFile( "/sdcard/crit.txt" );
 
 txt += app.ReadFile( "/sdcard/philosophy.txt" )
 }
 if (trial == 4){
-
-
  txt = app.ReadFile( "/sdcard/AI.txt" );//enhanced mode, for specific event situationtrial = 0;
 }
 trial++;
-
  if (bound == 0){
  init = output2;
-
  }
 /*
 	var pitch = 1.0, speed = 1.0;
 	app.TextToSpeech(output, pitch, speed );
-	*/
-	
+	*/	
 	if (bound == 1){
 //cyberneticloop plugset
 for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){
-var chek = sentence[sentiencescan];
+var check = sentence[sentiencescan];
 var procarray = output2.split(" ");
 var cyberneticAlpha = procarray[procarray.length]//data node
 var cyberneticBeta = procarray[procarray.length-1]//data node
@@ -296,11 +272,8 @@ x = sentiencescan;
 }
 }
 }
-
-
  if (bound == 0){
  bound = 1;
  }
-
 }
 }
