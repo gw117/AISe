@@ -13,7 +13,7 @@ var stage = 0;
 var bound = 0;
 var pos = 0;
 var output2 = "";
-
+var trace = "";
 function OnStart()
 {
 
@@ -263,6 +263,10 @@ trial++;
 	var pitch = 1.0, speed = 1.0;
 	app.TextToSpeech(output, pitch, speed );
 	*/	
+
+trace += sentence[x];
+
+app.WriteFile( "/sdcard/output.txt",trace, "append" );
 	if (bound == 1){
 //cyberneticloop plugset
 for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){
