@@ -48,6 +48,8 @@ for(var x = 0;x < sentence.length;x++){
 //line terminator/blocking, 
 terminator = output.split(" ");
 if (terminator.length > 20){//output length
+
+trace += ";";
 break;
 }
 //custom logic operator
@@ -67,7 +69,11 @@ if (functionorder[b] == word[a]){
 //a = b //functionorder
 var wordstr  = word[a];
 trace += + "(f:"+ wordstr + ")";
+
+trace += sentence[x];
 x = c;
+
+trace += sentence[x];
 pos = c;
 x = Math.round(x);
 if (q == 0){
@@ -174,6 +180,7 @@ var word = sent.split(" ");
 //a = b //functionorder
 trace += + "(p:"+ wordstr + ")";
 x = c;
+trace += sentence[x];
 c = pos;
 x = Math.round(x);
 if (q == 0){
@@ -264,7 +271,6 @@ trial++;
 	app.TextToSpeech(output, pitch, speed );
 	*/	
 
-trace += sentence[x];
 
 app.WriteFile( "/sdcard/proof.txt",trace, "append" );
 	if (bound == 1){
