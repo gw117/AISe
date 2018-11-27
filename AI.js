@@ -21,34 +21,6 @@ var green = 0;
 
 
 
-function DrawGraph( red, green, blue )
-{
-    var xr=0.2, xg=0.4, xb=0.6;
-    imgGraph.Clear();
-    
-    //Draw red bar and value.
-    imgGraph.SetPaintColor( "#ff0000" );
-    imgGraph.DrawRectangle( xr, 1, xr+0.1, 1-red/255 );
-    hex = red.toString(16).toUpperCase();
-    imgGraph.DrawText( hex, xr, 0.1 );
-    
-    //Draw green bar and value.
-    imgGraph.SetPaintColor( "#00ff00" );
-    imgGraph.DrawRectangle( xg, 1, xg+0.1, 1-green/255 );
-    hex = green.toString(16).toUpperCase();
-    imgGraph.DrawText( hex, xg, 0.1 );
-    
-    //Draw blue bar and value.
-    imgGraph.SetPaintColor( "#0000ff" );
-    imgGraph.DrawRectangle( xb, 1, xb+0.1, 1-blue/255 );
-    hex = blue.toString(16).toUpperCase();
-    imgGraph.DrawText( hex, xb, 0.1 );
-    
-    //Update image.
-    imgGraph.Update();
-}
-
-
 
 
 
@@ -61,14 +33,6 @@ function OnStart()
 
 app.ShowPopup("initialising" );
 	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
-
-    imgGraph = app.CreateImage( null, 0.3, 0.1 );
-    imgGraph.SetMargins( 0.05,0.1,0,0 );
-    imgGraph.SetBackColor( "#222222" );
-    imgGraph.SetTextSize( 12 );
-    imgGraph.SetAutoUpdate( false );
-//    lay.AddChild( imgGraph );
-
 
 
 var output = "";
@@ -87,9 +51,8 @@ var logicordershift = 1
 function btnLoad_OnTouch() 
 { 
  var db2 = "";
-app.ShowPopup("Construct" );
 var txt = app.ReadFile( "/sdcard/philosophy.txt" );
- txt += app.ReadFile( "/sdcard/AI.txt" );
+ 
 sentence = txt.split(".");
 while(0==0){
 output = "";
@@ -149,7 +112,7 @@ var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
 if (q == 0){
-output += functionorder[b] + " ";
+output += "";
 }
 q = 1;
 break;
@@ -284,18 +247,25 @@ app.WriteFile( "/sdcard/output.txt",output2, "append" );
  edt2.SetText(output2);
  txt = output2;
 
-
-if (trial == 2){
-app.ShowPopup("Construct" );
-var txt = app.ReadFile( "/sdcard/philosophy.txt" );
- txt += app.ReadFile( "/sdcard/AI.txt" );//enhanced mode, for specific event situation
+if (trial == 1){
+var txt = app.ReadFile( "/sdcard/crit.txt" );
+txt += app.ReadFile( "/sdcard/philosophy.txt" );
 }
 
+if (trial == 2){
 
+var txt = app.ReadFile( "/sdcard/philosophy.txt" );
+}
+
+if (trial == 3){
+var txt = app.ReadFile( "/sdcard/crit.txt" );
+
+txt += app.ReadFile( "/sdcard/philosophy.txt" )
+}
 if (trial == 4){
- txt = app.ReadFile( "/sdcard/output.txt" );
-app.ShowPopup("Proto emulation" ); //seperate proto emulation output db from construct output db? (for causation validation and interference protection, to prevent domain interchange between, new actuation and previous actuation(memory/brain and "hardware" cognition.)
-trial = 0;
+
+
+ txt = app.ReadFile( "/sdcard/AI.txt" );//enhanced mode, for specific event situationtrial = 0;
 }
 trial++;
 
@@ -311,7 +281,7 @@ trial++;
 	if (bound == 1){
 //cyberneticloop plugset
 for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){
-var check = sentence[sentiencescan];
+var chek = sentence[sentiencescan];
 var procarray = output2.split(" ");
 var cyberneticAlpha = procarray[procarray.length]//data node
 var cyberneticBeta = procarray[procarray.length-1]//data node
