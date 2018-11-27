@@ -65,6 +65,8 @@ var sent = sentence[c];
 var word = sent.split(" ");
 if (functionorder[b] == word[a]){
 //a = b //functionorder
+var wordstr  = word[a];
+trace += + "(f:"+ wordstr + ")";
 x = c;
 pos = c;
 x = Math.round(x);
@@ -98,6 +100,8 @@ if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
+var wordstr  = word[a];
+trace += + "(nH:"+ wordstr + ")";
 if (q == 0){
 output += "";
 }
@@ -126,6 +130,8 @@ if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
 if(a > word.length/difficulty){
 output += wordstr+" ";
+
+trace += + "(f:"+ wordstr + ")";
 edt.SetText(output);
 }
 }
@@ -144,6 +150,7 @@ for(var b = 0; b < vocab.length;b++){
 if(wordstr > vocab[b]){
 if (output.indexOf(wordstr) == -1){
 if(a > word.length*difficulty){
+trace += + "(v:"+ wordstr + ")";
 output += wordstr+" ";
 edt.SetText(output);
 }
@@ -164,7 +171,8 @@ for(var b = 0; b < functionorder.length;b++){
 if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
-//a = b //functionorder x
+//a = b //functionorder
+trace += + "(p:"+ wordstr + ")";
 x = c;
 c = pos;
 x = Math.round(x);
@@ -202,6 +210,7 @@ for(var b = 0; b < vocab.length;b++){
 if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
 if(a > word.length*difficulty){
+trace += + "(a:"+ wordstr + ")";
 output += wordstr+" ";
 update = wordstr;
 edt.SetText(output);
