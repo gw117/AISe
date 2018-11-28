@@ -1,4 +1,4 @@
-var difficulty = 0.1;
+var difficulty = 0.9;
 var init;
 var corr = "";
 var trial = 0;
@@ -17,6 +17,7 @@ var trace = "";
 function OnStart()
 {
 
+//Nodeplug design and control suite with AI
 
 //add logic trace mechanism to produce proofs
 
@@ -47,7 +48,7 @@ output = "";
 for(var x = 0;x < sentence.length;x++){
 //line terminator/blocking, 
 terminator = output.split(" ");
-if (terminator.length > 20){//output length
+if (terminator.length > 5){//output length
 
 trace += ";";
 break;
@@ -69,8 +70,8 @@ if (functionorder[b] == word[a]){
 //a = b //functionorder
 var wordstr  = word[a];
 trace += "(f:"+ wordstr + ")";
-
-trace += sentence[x];
+var sent = sentence[x];
+trace += sent;
 x = c;
 
 trace += sentence[x];
@@ -180,7 +181,8 @@ var word = sent.split(" ");
 //a = b //functionorder
 trace += "(p:"+ wordstr + ")";
 x = c;
-trace += sentence[x];
+var sent = sentence[x];
+trace += sent;
 c = pos;
 x = Math.round(x);
 if (q == 0){
@@ -252,19 +254,21 @@ var txt = app.ReadFile( "/sdcard/crit.txt" );
 txt += app.ReadFile( "/sdcard/philosophy.txt" );
 }
 if (trial == 2){
-var txt = app.ReadFile( "/sdcard/philosophy.txt" );
+var txt = app.ReadFile( "/sdcard/comm.txt" );
+txt += app.ReadFile( "/sdcard/philosophy.txt" );
 }
 if (trial == 3){
-var txt = app.ReadFile( "/sdcard/crit.txt" );
+var txt = app.ReadFile( "/sdcard/soc.txt" );
 
 txt += app.ReadFile( "/sdcard/philosophy.txt" )
+trial = 0;
 }
 if (trial == 4){
  txt = app.ReadFile( "/sdcard/AI.txt" );//enhanced mode, for specific event situationtrial = 0;
+
 }
 trial++;
 
-app.WriteFile( "/sdcard/proof.txt",trace,"append");
  if (bound == 0){
  init = output2;
  }
@@ -273,6 +277,7 @@ app.WriteFile( "/sdcard/proof.txt",trace,"append");
 	app.TextToSpeech(output, pitch, speed );
 	*/	
 
+app.WriteFile( "/sdcard/proof.txt",trace,"append");
 	if (bound == 1){
 //cyberneticloop plugset
 for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){

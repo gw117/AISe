@@ -1,0 +1,683 @@
+Meaning, Evolution, and the Structure of Society
+Roland Mühlenbernd and Michael Franke
+Seminar für Sprachwissenschaft, Universität Tübingen
+
+Abstract. Leading models of language evolution seek to explain key properties
+of language as emerging from repeated interactions of language-using agents.
+This paper will explore some of the consequences that integrating a more realistic
+social interaction structure into established models of language evolution in terms
+of evolutionary game theory has and reflects on prospective applications.
+
+Leading models of language evolution seek to explain key properties of language as
+emerging from repeated goal-oriented interactions of language-using agents [26, 32, 4,
+2, 31]. Models of meaning evolution delineate exact conditions under which semantic
+meaningfulness can emerge, by imitation of others or by rationally responding to the
+behavior of one’s environment. It is obvious that the psychology of language users plays
+a pivotal role here: among other things, the particulars of agents’ perception and memory, their disposition to adapt their behavior, including the extent to which they make
+rational choices will heavily influence the way linguistic behavior evolves over time.
+Consequently, there has been a lot of research into the impact of different agent-based
+learning dynamics [18, 17, 3, 21, 8, 13]. Moreover, the sociology of language-using
+populations plays a role in determining the time course and outcome of evolutionary
+processes. Many evolutionary models make explicit assumptions about the interaction
+patterns within a population of language users, such as who interacts with whom [25].
+Different interaction structures may give different predictions about uniformity or diversity of language [37, 34, 23]: if everybody in a large population were to interact with
+everybody else equally, language uniformity is to be expected; but given a tendency to
+interact mostly with nearby kinsmen, we expect dialects and regional variations. Further obvious consequences of different social interaction structures are the readiness
+and speed with which new innovations may spread in a population [16, 6], or the social
+standing of the innovators [6, 24].
+The aim of this paper is to highlight where and how psychological and sociological
+constraints interact and influence the outcome of evolutionary processes relevant for
+the evolution of meaning. Our goal is to communicate ideas, not mathematical detail.
+Section 1 introduces basic notions of evolutionary game theory and formal network theory. Section 2 demonstrates how restrictions on social interaction patterns influence the
+equilibrium outcomes for a simple game that has been used frequently in the literature
+to study structural iconicity in language [5]. We show that more realistic interaction
+structures make it more likely that iconic language use evolves. Section 3 recaps the
+conditions under which simple signaling game models of meaning evolution give rise to
+regional variability, and Section 4 zooms in on the global and local network properties
+that characterize, among others, language boundaries or origins of conventionalization.
+
+t1
+
+m1
+
+a1
+
+t1
+
+m1
+
+a1
+
+t1
+
+m1
+
+a1
+
+t2
+
+m2
+
+a2
+
+t2
+
+m2
+
+a2
+
+t2
+
+m2
+
+a2
+
+(a) strategy profile s1
+
+(b) strategy profile s2
+
+(c) strategy profile s3
+
+Fig. 1. Different strategy profiles for a signaling game with 2 states/messages/actions.
+
+1
+
+Background: Evolutionary Games & Networks
+
+Signaling Games. We will restrict our attention to signaling games [20]. A sender has
+private information which a receiver lacks. The sender sends a message, which has no
+pre-established meaning. The receiver then takes an action in response to observing the
+sender’s message. If the receiver’s action matches the sender’s private information, the
+game is a success; if not, it’s a failure. For illustration, we consider signaling games
+with a set of two states T = {t1 , t2 }, a set of two messages M = {m1 , m2 } and a set of two
+receiver actions A = {a1 , a2 }. With probability p state t1 occurs, and with probability
+1 − p it is t2 . The utilities for sender and receiver of one round of play are given by
+functions US ,R : T × M × A → R as follows:
+
+
+
+1 if i = k
+UR (ti , mj , ak ) = 
+US (ti , mj , ak ) = UR (ti , mj , ak ) −  j
+
+0 otherwise
+where 0 ≤ 1 ≤ 2 < 1 are costs of sending messages m1 and m2 respectively. When
+the state probabilities are equal p = .5 and the message costs are zero 1 = 2 = 0,
+then we call the game a Lewis game. We also consider the case where p > .5 and
+0 ≤ 1 < 2 and call it a Horn game. This case has been used frequently to study
+the structural iconicity principle a.k.a. Horn’s division of pragmatic labor [11] from
+an evolutionary perspective, namely the observation that most often languages encode
+frequent or stereotypical meanings with short and economic forms [27, 19, 15, 7, 23].
+A pure sender strategy is a function s : T → M from states to messages; a pure
+receiver strategy is a function r : M → A from messages to acts. A pair of pure strategies is a pure strategy profile. There are 4 pure sender and 4 pure receiver strategies for
+the signaling games we look at here and consequently 16 pure strategy profiles. Next to
+pure strategies, there are also mixed strategies. These are probability distributions over
+pure strategies. So, a mixed sender (receiver) strategy s̃ (r̃) is a function assigning a
+probability to each pure sender (receiver) strategy. In an evolutionary context, we interpret these as giving the frequency with which each pure strategy occurs in a population
+of agents. A mixed strategy profile is then a pair of mixed sender and receiver strategies that describes the current population state, i.e., the frequencies of pure sender and
+receiver strategies occurring in the population at a given time.
+Static Solutions. For the Lewis game, the two pure strategy profiles s1 and s2 in Figure 1 are of particular interest. In each of these, all of the agents play the same strategy
+in either sender or receiver role. Lewis called profiles like these, where agents succeed
+
+to communicate perfectly, signaling systems. Although messages are initially meaningless, they become meaningful if a population of agents uses them in the way described
+by a signaling system. E.g., in strategy profile s1 from Figure 1(a), message m1 denotes state t1 . The population states in s1 and s2 are evolutionarily stable states (esss)
+[22, 35]. When, as we assume here, agents hold both a sender and receiver strategy
+independently, the esss of the game are just the strict Nash equilibria [30].
+Dynamic Solutions. Knowing which population states are esss is important, but we may
+also wish to know whether and how a population which is not in an ess develops if every
+agent adapts her behavior in some way or another. The most common evolutionary
+dynamic studied for that purpose is the replicator dynamic of [33]. The general idea
+behind the replicator dynamic is that the frequency s̃t (s) of pure sender strategy s at time
+t in the population changes proportional to how successful s fares against the averaged
+receiver behavior r̃t at time t. If s does better than the average over all pure sender
+strategies, then the frequency of s increases proportionally to how much better it does
+than average; if s does worse, then its frequency decreases proportionally to how much
+worse it does in comparison with other sender strategies. Similarly, for the receiver. A
+fixed point of the replicator dynamic is a population state that does not change under the
+replicator dynamic. An attractor is a fixed point such that population states close to it
+converge towards that fixed point. For each attractor, we call its basin of attraction the
+region of population states that converge to it. To simplify parlor, we restrict attention
+to relevant attractors that have a non-negligible basin of attraction.
+The behavior of signaling games under the replicator dynamic is well-studied [12,
+31, 13]. For populations where sender and receiver role are treated separately, we obtain
+the following picture. The two signaling systems s1 and s2 in Figure 1 are the only
+relevant attractors of the replicator dynamic for the Lewis game and have equally sized
+basins of attraction. For the Horn game, there are three relevant attractors (Figure 1):
+strategy s1 is called the Horn state since it captures the structural iconicity principle
+mentioned above according to which the more efficient form is linked with the more
+frequent meaning; strategy s2 is called the Anti-Horn state, since it operates exactly the
+other way around; and strategy s3 is called the Smolensky state [11, 5, 19]. The Horn
+state is the more efficient way of using language than the Anti-Horn state, although both
+achieve perfect communication throughout. The Smolensky state is worse than Horn or
+Anti-Horn, as communication is achieved in only p times cases. This is reflected in the
+relative sizes of the basins of attraction. To estimate these by numerical simulations,
+we generated 1 million randomly chosen initial population states, ran the replicator
+dynamic for a Horn game (p = .75, 1 = 0, 2 = .1) and recorded the number of times
+the system converged to one of the three states. 54.5% or trials converged to the Horn
+state, 33.0% to the Anti-Horn state, and 11.9% to the Smolensky state.
+The bigger size of the basin of attraction of the Horn state could be taken as a partial
+explanation for the relative prevalence of the structural iconicity principle. However, although Horn and Anti-Horn states support full communication, the Smolensky state is
+communicatively inefficient but still attracts almost 12% of initial population states for
+the chosen parameter values. Interestingly, this changes when we consider communication in structured populations, which is what we will work towards next.
+
+Network Games. The replicator dynamic describes how the frequencies of various
+strategies in a population of agents develop over time. This is a macro-level perspective, because there is no mention in the formulation of the replicator dynamic of what
+each individual agent is doing. But we can also link the replicator dynamic to a microlevel perspective. It can be shown that the replicator dynamic describes the most likely
+path of strategy distributions in a virtually infinite and homogeneous population when
+every agent updates her behavior by conditional imitation [9, 29]. A population is homogenous if every agent repeatedly interacts with everybody else equally. An agent who
+updates her behavior by conditional imitation plays a constant pure strategy for a while,
+but, every now and then, checks how well all neighbors fare with the strategy that they
+play. If some set X of neighbors do better than the agent, he adopts the pure strategy
+of some x ∈ X, where x is chosen from X with a probability that is proportional to the
+relative success of x’s strategy if compared with that of the other elements in X.
+The conditional imitation rule adopts a micro-level, agent-based perspective. The
+micro-level perspective makes it possible to dispense with the assumption that the population is virtually infinite and homogeneous. Instead, we can fix an explicit interaction
+structure for a population by defining which agents can interact with one another. At
+the same time, we can also look at different update rules, i.e. different ways of changing
+behavior over time. We refer to a fixed interaction structure and a fixed update rule as a
+network game, when the interaction structure of the agents is given by a social network
+of relations. Such a network is formally represented as an undirected graph G = hN, Ei
+where N = {1, . . . , n} is the set of nodes, representing the agents, and E ⊆ N × N
+is an irreflexive and symmetric ordering on N. Agents i and j interact if and only if
+hi, ji ∈ E. In the following, we look at some relevant graph structures whose interaction
+with various update rules we will explore thereafter.
+Network Types. The most trivial graph structure is a completely connected network:
+every agent interacts with everybody else equally; the population is homogeneous. In
+a k-ring network all of the agents are ordered and connected in a circular way to their
+k-nearest neighbors. In a grid network the agents are arranged on an n × m toroid structure, where every agent interacts with the 8 nearest neighbors. Rings and grids are easy
+to implement and facilitate proofs, but they are quite unrealistic models of human interaction patterns. We therefore also consider two more complicated graph types that
+are created with a random component. The first are so-called β-graphs. A β-graph is
+obtained by considering a k-ring network and subsequently, for each node, rewiring
+its k/2 left neighbors to a random vertex n with probability β [36]. β-graphs have socalled small-world properties: a short characteristic-path length and a high clustering
+coefficient, features that also show, for instance, in the analysis of human friendship
+networks [14]. Nodes in a β-graph almost all have the same number of connections,
+but it seems more realistic to assume that most agents interact with a smaller number
+of agents, but there are also agents who interact with many. If the frequency of agents
+with ever larger numbers of connections follows a power-law distribution, the network
+is said to be scale-free. We consider a special kind of scale-free networks here, which
+is both scale-free and has small-world properties [1]. These are constructed by a simple
+parameterized preferential attachement algorithm [10].
+
+Update Rules. We will here only consider general classes of update rules, namely the
+imitation class and the learning class. The imitation class comprises update rules where
+agents would adopt other agents’ behavior under certain conditions. The conditional
+imitation update rule that we linked to the replicator dynamic above is, of course, a first
+example. Moreover, we consider the imitate-the-best update rule used by [37] and [34].
+This update rule is the special case of the conditional imitation where agents adopt the
+strategy of the neighbor who is doing best with probability 1 if this neighbor is doing
+better than the agent himself.
+When imitation is conditional on success of neighboring strategies, imitation-based
+update rules are not as innocuous and resource efficient as they may seem at first. Payoffdependent imitation requires keeping track of the neighbors’ average success. It may
+be easier to keep track just of one’s own. For that reason, we also look at two specimen from the learning class of update dynamics. Learning-based dynamics assume
+that agents try to optimize their behavior by keeping track of the past interactions that
+they were engaged in. Whereas imitation-based dynamics have agents change their entire pure strategy when they imitate, learning-based update rules often induce only local
+and gradual changes to the agents’ behavioral strategies. A behavioral sender strategy σ
+is a function from T to probability distributions over M. Similarly, a behavioral receiver
+strategy ρ is a function from M to probability distributions over A.
+Reinforcement learning (RL) is the most popular learning dynamic when it comes
+to signaling games [31]. Here, agents are more likely to repeat a certain choice the more
+successful is was in the past. This can be pictured as a process of updating Pólya urns
+[28]. An urn models a behavioral strategy, in the sense that the probability of making a
+particular decision is proportional to the number of balls in the urn that correspond to
+that action choice. By adding or removing balls from an urn after each encounter, an
+agent’s behavior is gradually adjusted. For signaling games, the sender has an urn Ωt
+for each state t ∈ T , which contains balls for different messages m ∈ M. The number
+of balls of type m in urn Ωt is m(Ωt ), the overall number of balls in urn Ωt is |Ωt |. If the
+sender is faced with a state t she draws a ball from urn Ωt and sends message m, if the
+ball is of type m. The resulting behavioral strategy is: σ(m|t) = m(Ωt )/|Ωt |. (Similarly, for
+the receiver.) The learning dynamics are realized by changing the urn content dependent on the communicative success. If communication via t, m and a is successful, the
+number of balls in urn Ωt is increased by α ∈ N balls of type m and reduced by γ ∈ N
+balls of type m0 , m. Similarly, for the receiver. In this way successful communicative
+behavior is more probable to reappear in subsequent rounds. In our experiments, all
+urns were initially filled with 100 balls and we set α = 10 and γ = 4.
+
+2
+
+Network Structure Shifts the Basin of Attraction
+
+We have seen above that there are three relevant attractor states for the replicator dynamic in the Horn game (Figure 1), with differently sized basins of attraction. Let’s see
+what happens when we look at various network games instead. To isolate the impact of
+interaction structure, we look at a network game with the conditional imitation update
+rule. This is because, as explained above, for huge and completely connected networks,
+average behavior of conditional imitation imitates that of the replicator dynamic. Com-
+
+Smolensky
+
+Smolensky
+45.9%
+36.5%
+16.0%
+
+50.1%
+41.0%
+6.5%
+
+Anti-Horn
+Horn
+
+Anti-Horn
+Horn
+
+(a) Homogeneous population
+
+(b) Heterogeneous population
+
+Fig. 2. Comparing the basins of attraction for the conditional imitation rule by numerical simulation for different network topologies. Figure 2(a) shows the results for a completely connected
+network, while 2(b) shows the results for a small-world network, both for 100 agents.
+
+paring completely connected networks to other types of interaction structure, we get a
+good glimpse at the consequences of the assumption of homogeneity that is hidden in
+the elegant formulation of the replicator dynamic.
+We fix a Horn game with p = .75, 1 = 0 and 2 = .1, as before, and compare,
+by numerical simulation, several trials on both homogeneous and heterogeneous populations. Figure 2 shows the averaged outcomes of several trials of a discrete traversal of the strategy space. Each dot in the graph corresponds to an initial state of the
+sender population. (The picture for the receiver would be largely parallel.) Since population states for this game are probability distributions over four strategies, it suffices
+to describe these states by three numbers, leaving implicit the frequency of strategies
+{t1 , t2 } → m2 and {m1 , m2 } → a2 . The color of the dots represents the most frequent
+sender strategy to which the initial strategy eventually evolved. Depicted are trials over
+100 runs. Figure 2(a) visualizes the basins of attraction for a homogeneous population
+of 100 agents with a completely connected network as interaction structure. Notice that
+these results are for a very small population only, but still meet the predictions of the
+replicator dynamic in 93.2% of the trials. Figure 2(b) shows the results for a heterogeneous population of 100 agents located on a β-graph (k = 4; β = .1) as the underlying
+interaction structure. The pictures in Figure 2 show clearly that conditional imitation on
+small-world networks leads to fewer Smolensky outcomes.
+Table 1 compares basins of attraction (BoA), not only for complete and small-world
+networks, but also for scale-free network (with m = 3 and p = .8) and grid topologies.
+They all differ not only in this distribution, but also in the correspondence to the basin of
+attraction of the replicator dynamic (RD-correspondence). These results show clearly
+that social factors of interaction have non-trivial effects on the results of evolutionary
+processes of language games.
+
+Table 1. Basins of attraction and replicator dynamic correspondence for different topologies
+
+BoA Horn BoA Anti-Horn BoA Smolensky RD-corresp.
+complete network
+scale-free
+β-graph
+grid topology
+
+L1
+
+L2
+
+45.9%
+49.7%
+50.1%
+50.1%
+
+36.5%
+38.3%
+41.0%
+40.8%
+
+other
+(a) Lewis game
+
+16.0%
+10.5%
+6.5%
+6.7%
+
+Horn
+
+Anti-Horn
+
+93.2%
+91.0%
+89.1%
+88.2%
+
+other
+
+(b) Horn game
+
+Fig. 3. Exemplary distribution of players with different strategies. Figure 3(a) shows the result of
+a Lewis game, Figure 3(b) of a Horn game with p = .6 and 1 = .1, 2 = .2.
+
+3
+
+Emergence of Regional Meaning
+
+[37] analyzed the Lewis game played on 100 × 100 grid under the imitate the best rule.
+The main finding was that all agents learned a signaling system and that the population
+was divided in multiple language regions: regions of agents playing either the one or the
+other signaling system. In other words, heterogeneous interaction structures can lead to
+the emergence of regional meaning.
+[23] applied reinforcement learning to a Horn-game, played on a 30 × 30 grid network. Multiple language regions emerged in ca. 80% of all simulation runs and, on
+average, the number of Anti-Horn players amounted to ca. 3% (30 agents) of all agents.
+Furthermore, language regions were always separated by border players, who never
+learned a language, but rather switched between different strategies continuously. Exemplary distributions for Lewis and Horn game are depicted in Figure 3.
+[23] also extended the grid structure to a social map [25]: agents communicate not
+only with their immediate neighbors on the toroid structure, but with all agents of the
+population, whereby the probability of communicating with another agent was inversely
+proportional to the Manhattan distance. A parameter degree of locality γ determines the
+
+percentage
+100%
+
+probability
+
+1
+0.8
+
+80%
+
+0.6
+
+60%
+
+0.4
+
+40%
+
+0.2
+
+20%
+
+0
+
+γ
+0 1 2 3 4 5 6 7 8
+
+Lewis game
+Horn game 1
+Horn game 2
+
+γ
+
+0%
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+(a) Prob. of neighborhood communication (b) Percentage of trials with multiple language reas a function of degree of locality γ
+gions as a function of degree of locality γ
+Fig. 4. The probability of neighborhood communication increases with degree of locality γ (4(a)).
+The emergence of a society of multiple language regions is supported by high γ-values (4(b)).
+
+relation between distance and probability. While for γ = 0 each agent in the network
+is chosen as interlocutor with the same probability, by increasing γ, the probability of
+choosing a close agent increases. Figure 4(a) depicts the probability to communicate
+with a direct neighbor dependent on γ for a 30 × 30 social map. By increasing γ the
+social map structure approximates neighborhood communication on a grid network.
+We can then examine how the emergence of multiple language regions depends on the
+degree of locality γ in three different games: the Lewis game, Horn game 1 (p = .6,
+1 = .1, 2 = .2) and Horn game 2 (p = .7, 1 = .1, 2 = .2). Since for γ = 0 the social
+map corresponds to a complete network, in any trial for any game only one signaling
+system emerges, as expected. For γ = 8 the social map equals a grid structure and all
+trials of the Lewis game, ca. 80% of the trials of Horn game 1 and only ca. 10% of
+Horn game 2 result in a society of multiple language regions. Figure 4(b) depicts how
+the percentage increases with γ for 0 ≤ γ ≤ 8.
+In sum, the emergence of variability depends strongly on the network topology, especially the level of connectedness. Moreover, [34] showed for β-graphs that the number and kind of language regions depends on global network properties like clustering
+coefficient and average path length. In the next section we extend this line of research
+by looking at the evolution of signaling conventions, not only on β-graphs, but also
+scale-free networks. Adding to previous work, we investigate the network properties
+associated with regions of agents that have successfully learned a language.
+
+4
+
+Structure of Regional Meaning
+
+Deepening our understanding of synthetic evolutionary processes in structured populations us useful for a more thorough understanding of the sociological factors of linguistic variability. Most previous work has focused on studying which network structures
+are conducive to innovation and its spread [16, 6], less has been done to investigate the
+
+structure of the sub-regions of agents that have successfully learned a language. Towards this goal, we modeled structured populations as β-graph and scale-free networks
+and created appropriate 10 networks of each type with 300 nodes. For each network, 20
+simulation runs were conducted. Agents played the Lewis game with randomly chosen
+neighbors on the network, and each agent’s behavior was updated via reinforcement
+learning, separately after each round of play. We recorded strategies of agents in suitably chosen regular intervals. Each trial ran until at least 90% of agents had acquired a
+language, or each network connection had been used 3000 times in either direction.
+In order to determine which global network properties best characterize where, on
+average, learning would be most likely successful, we looked at what we will call language regions. A language region is a maximal subset of agents that have acquired the
+same language that forms a connected subgraph. Despite using reinforcemant learning
+instead of imitation dynamics, our data confirmed Wagner’s [34] results that in smallworld networks like ours the number of language regions is small while the size of
+language regions is relatively big. On β-graphs multiple language regions emerged for
+each simulation run, whereas on scale-free networks more than one language region
+emerged in ca. 90% of all runs. However, most of the time, only two big language
+regions formed on scale-free networks and β-graphs as well, one for each signaling
+convention.
+To analyze the properties of language regions, we looked at relevant properties of
+(sub-)graphs: density, average clustering and transitivity.1 Our simulation data show
+that each connected language region of a given type had always a higher average clustering value than the expected value for a random connected subgraph of the same size,
+whereas the density value didn’t exhibit such a divergence (Figure 5). So, a regular
+local clique structure supports locally coherent language, but mere number of connections does not. For β-graphs this conclusion is also supported by the fact, that language
+regions always had a higher transitivity value than expected from random sampling.
+Interestingly this doesn’t hold for scale-free networks. This divergence results from the
+nature of both network types: in a diffuse network like β-graphs transitivity and clustering roughly correspond to each other, whereas scale-free networks can have high individual clustering because of the cliquishness of sub-communities, but unions of those
+communities are connected by only few hubs and therefore the more global transitivity
+value stays low, or doesn’t exceed the expected average value.
+
+Conclusion & Outlook
+
+5
+
+We presented cursorily data from a number of studies that all support a very general
+conclusion: the social structure in a society matters to the evolution of conventional
+meaning. Not only can different interaction structures in network games lead to shifts
+in the basins of attraction of different strategies under identical dynamics, constraints
+on social interaction patterns can also lead to the emergence of regional variety. Using
+notions from formal network theory, this paper tried to dig deeper into the relation
+between social structure and evolutionary dynamics of meaning by investigation where
+languages are most likely situated in the population.
+1
+
+For the formal definitions, we refer to [14].
+
+β-graph
+
+scale-free
+
+density
+1
+
+density
+1
+0.8
+
+0.8
+
+0.6
+
+0.6
+
+0.4
+
+0.4
+0.2
+
+0.2
+
+n
+
+0
+0
+
+50
+
+100 150 200 250 300
+
+n
+
+0
+0
+
+50
+
+clustering
+1
+
+clustering
+1
+
+0.8
+
+0.8
+
+0.6
+
+0.6
+
+0.4
+
+0.4
+
+0.2
+
+100 150 200 250 300
+
+0.2
+
+n
+0
+
+50
+
+n
+
+100 150 200 250 300
+
+0
+
+50
+
+transitivity
+1
+
+transitivity
+1
+
+0.8
+
+0.8
+
+0.6
+
+0.6
+
+0.4
+
+0.4
+
+0.2
+
+0.2
+
+n
+0
+
+50
+
+100 150 200 250 300
+
+100 150 200 250 300
+
+n
+0
+
+50
+
+100 150 200 250 300
+
+Fig. 5. Comparing observed density, clustering and transitivity of a language region (o) with
+expected values from randomly chosen subgraphs (solid lines, subgraph size n along the x-axis).
+
+The models and results we presented explore the impact of social factors on language evolution on a very high level of abstraction. But it is nonetheless clear that this
+approach promises to lend itself to a number of concrete linguistic applications. We
+therefore consider the presented material here, as a first step into new terrain. The most
+obvious future applications of this line of work are language contact phenomena and
+the sociolinguistics of innovation and innovation-adoption. But also, for example, by
+looking at scale-free networks with a few super-agents connected to (almost) all other
+agents, the impact of modern media on language change can be formally studied. Moreover, once we move beyond static interaction structures and also take generational models of language evolution into account, it becomes possible to study the way changes in
+social interaction structures could have interacted with, i.e., causing and being caused
+by, language use.
+
+Bibliography
+
+[1] Barabási, A.-L. and Albert, R. (1999). Emergence of scaling in random networks.
+Science, 286(5439):509–512.
+[2] Baronchelli, A., Puglisi, A., and Loreto, V. (2008). Cultural route to the emergence
+of linguistic categories. PNAS, 105(23):7936–7940.
+[3] Barrett, J. A. and Zollman, K. J. S. (2009). The role of forgetting in the evolution and learning of language. Journal of Experimental and Theoretical Artificial
+Intelligence, 21(4):293–309.
+[4] Beckner, C., Blythe, R., Bybee, J., Christiansen, M. H., Croft, W., Ellis, N. C.,
+Holland, J., Ke, J., Larsen-Freeman, D., and Schoenemann, T. (2009). Language is
+a complex adaptive system: Position paper. Language Learning, 59:1–26.
+[5] Blutner, R. (1998). Lexical pragmatics. Journal of Semantics, 15:115–162.
+[6] Fagyal, Z., Swarup, S., Escobar, A. M., Gasser, L., and Lakkaraju, K. (2010). Centers and peripheries: Network roles in language change. Lingua, 120:2061–2079.
+[7] Franke, M. (2009). Signal to Act: Game Theory in Pragmatics. PhD thesis, Universiteit van Amsterdam.
+[8] Franke, M., Jäger, G., and van Rooij, R. (2011). Vagueness, signaling & bounded
+rationality. In Onoda, T., Bekki, D., and McCready, E., editors, JSAI-isAI 2010,
+pages 45–59. Springer.
+[9] Helbing, D. (1996). A stochastic behavioral model and a ‘microscopic’ foundation
+of evolutionary game theory. Theory and Decision, 40(2):149–179.
+[10] Holme, P. and Kim, B. J. (2002). Growing scale-free networks with tunable clustering. Physical Review E, 65(2):026107–1–026107–4.
+[11] Horn, L. R. (1984). Towards a new taxonomy for pragmatic inference: Q-based
+and R-based implicature. In Shiffrin, D., editor, Meaning, Form, and Use in Context,
+pages 11–42. Georgetown University Press, Washington.
+[12] Huttegger, S. M. (2007). Evolution and the explanation of meaning. Philosophy
+of Science, 74:1–27.
+[13] Huttegger, S. M. and Zollman, K. J. S. (2011). Signaling games: Dynamics of
+evolution and learning. In Benz, A., Ebert, C., Jäger, G., and van Rooij, R., editors,
+Language, Games, and Evolution, LNAI 6207, pages 160–176. Springer.
+[14] Jackson, M. O. (2008). Social and Economic Networks. Princeton University
+Press, Princeton.
+[15] Jäger, G. (2007). Game dynamics connects semantics and pragmatics. In Pietarinen, A.-V., editor, Game Theory and Linguistic Meaning, pages 89–102. Elsevier.
+[16] Ke, J., Gong, T., and Wang, W. S.-Y. (2008). Language change and social networks. Communications in Computational Physics, 3(4):935–949.
+[17] Komarova, N. L., Jameson, K. A., and Narens, L. (2007). Evolutionary models of
+color categorization based on discrimination. Journal of Mathematical Psychology,
+51(6):359–382.
+[18] Lenaerts, T., Jansen, B., Tuyls, K., and Vylder, B. D. (2005). The evolutionary
+language game: An orthogonal approach. Journal of Theoretical Biology, 235:566–
+582.
+
+[19] Lentz, T. and Blutner, R. (2005). Signaling games: Evolutionary convergence on
+optimality. Papers on Pragmasemantics, pages 95–110.
+[20] Lewis, D. (1969). Convention. Harvard University Press, Cambridge.
+[21] Loreto, V., Baronchelli, A., and Puglisi, A. (2010). Mathematical modeling of
+language games. In Nolfi, S. and Mirolli, M., editors, Evolution of Communication
+and Language in Embodied Agents, chapter 15, pages 263–281. Springer-Verlag.
+[22] Maynard Smith, J. (1982). Evolution and the Theory of Games. Cambridge University Press.
+[23] Mühlenbernd, R. (2011). Learning with neighbors: Emergence of convention in a
+society of learning agents. Synthese, 183:87–109.
+[24] Mühlenbernd, R. and Franke, M. (2011). Signaling conventions: Who learns what
+where and when in a social network. In Proceedings of EvoLang IX.
+[25] Nettle, D. (1999). Using social impact theory to simulate language change. Lingua, 108(2–3):95–117.
+[26] Nowak, M. A. and Krakauer, D. C. (1999). The evolution of language. PNAS,
+96:8028–8033.
+[27] van Rooij, R. (2004). Signalling games select horn-strategies. Linguistics and
+Philosophy, 27:493–527.
+[28] Roth, A. E. and Erev, I. (1995). Learning in extensive form games: Experimental
+data and simple dynamical models in the intermediate term. Games and Economic
+Behavior, 8(1):164–212.
+[29] Schlag, K. H. (1998). Why imitate, and if so, how? Journal of Economic Theory,
+78(1):130–156.
+[30] Selten, R. (1980). A note on evolutionarily stable strategies in asymmetric animal
+conflicts. Journal of Theoretical Biology, 84:93–101.
+[31] Skyrms, B. (2010). Signals: Evolution, Learning & Information. Oxford University Press, Oxford.
+[32] Steels, L. and Belpaeme, T. (2009). Coordinating perceptually grounded categories through language: A case study for color. Behavioral and Brain Sciences,
+28(4):469–529.
+[33] Taylor, P. D. and Jonker, L. B. (1978). Evolutionary stable strategies and game
+dynamics. Mathematical Bioscience, 40(1–2):145–156.
+[34] Wagner, E. (2009). Communication and structured correlation. Erkenntnis,
+71(3):377–393.
+[35] Wärneryd, K. (1993). Cheap talk, coordination, and evolutionary stability. Games
+and Economic Behavior, 5(4):532–546.
+[36] Watts, D. J. and Strogatz, S. H. (1998). Collective dynamics of small-world networks. Nature, 393:440–442.
+[37] Zollman, K. J. S. (2005). Talking to neighbors: The evolution of regional meaning.
+Philosophy of Science, 72(1):69–85.
+
+
