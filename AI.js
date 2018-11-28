@@ -27,10 +27,10 @@ app.ShowPopup("initialising" );
 
 var output = "";
 var logicordershift = 1
-	edt = app.CreateTextEdit( "", 0.96, 0.7); 
+	edt = app.CreateTextEdit( "", 0.96, 0.4; 
 	edt.SetTextSize(8 );
 	lay.AddChild( edt );
-	edt2= app.CreateTextEdit( "", 0.96, 0.2); 
+	edt2= app.CreateTextEdit( "", 0.96, 0.4); 
 	edt2.SetTextSize(8);
 	lay.AddChild( edt2 );
 	btnLoad = app.CreateButton( "Actuate", 0.23, 0.1 ); 
@@ -48,7 +48,7 @@ output = "";
 for(var x = 0;x < sentence.length;x++){
 //line terminator/blocking, 
 terminator = output.split(" ");
-if (terminator.length > 5){//output length
+if (terminator.length > 20){//output length
 
 trace += ";";
 break;
