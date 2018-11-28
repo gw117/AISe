@@ -27,7 +27,7 @@ app.ShowPopup("initialising" );
 
 var output = "";
 var logicordershift = 1
-	edt = app.CreateTextEdit( "", 0.96, 0.4; 
+	edt = app.CreateTextEdit( "", 0.96, 0.4); 
 	edt.SetTextSize(8 );
 	lay.AddChild( edt );
 	edt2= app.CreateTextEdit( "", 0.96, 0.4); 
