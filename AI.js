@@ -68,7 +68,7 @@ var word = sent.split(" ");
 if (functionorder[b] == word[a]){
 //a = b //functionorder
 var wordstr  = word[a];
-trace += + "(f:"+ wordstr + ")";
+trace += "(f:"+ wordstr + ")";
 
 trace += sentence[x];
 x = c;
@@ -107,7 +107,7 @@ var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
 var wordstr  = word[a];
-trace += + "(nH:"+ wordstr + ")";
+trace += "(nH:"+ wordstr + ")";
 if (q == 0){
 output += "";
 }
@@ -137,7 +137,7 @@ if (output.indexOf(wordstr) == -1){
 if(a > word.length/difficulty){
 output += wordstr+" ";
 
-trace += + "(f:"+ wordstr + ")";
+trace += "(f:"+ wordstr + ")";
 edt.SetText(output);
 }
 }
@@ -156,7 +156,7 @@ for(var b = 0; b < vocab.length;b++){
 if(wordstr > vocab[b]){
 if (output.indexOf(wordstr) == -1){
 if(a > word.length*difficulty){
-trace += + "(v:"+ wordstr + ")";
+trace += "(v:"+ wordstr + ")";
 output += wordstr+" ";
 edt.SetText(output);
 }
@@ -178,7 +178,7 @@ if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
 //a = b //functionorder
-trace += + "(p:"+ wordstr + ")";
+trace += "(p:"+ wordstr + ")";
 x = c;
 trace += sentence[x];
 c = pos;
@@ -217,7 +217,7 @@ for(var b = 0; b < vocab.length;b++){
 if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
 if(a > word.length*difficulty){
-trace += + "(a:"+ wordstr + ")";
+trace +=  "(a:"+ wordstr + ")";
 output += wordstr+" ";
 update = wordstr;
 edt.SetText(output);
@@ -271,8 +271,7 @@ trial++;
 	app.TextToSpeech(output, pitch, speed );
 	*/	
 
-
-app.WriteFile( "/sdcard/proof.txt",trace, "append" );
+app.WriteFile( "/sdcard/proof.txt",trace);
 	if (bound == 1){
 //cyberneticloop plugset
 for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){
