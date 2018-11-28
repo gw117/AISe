@@ -1,4 +1,4 @@
-var difficulty = 0.9;
+var difficulty = 0.1;
 var init;
 var corr = "";
 var trial = 0;
@@ -280,7 +280,7 @@ trial++;
 app.WriteFile( "/sdcard/proof.txt",trace,"append");
 	if (bound == 1){
 //cyberneticloop plugset
-for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){
+for(var sentiencescan= x+1;sentiencescan < sentence.length;sentiencescan++){
 var check = sentence[sentiencescan];
 var procarray = output2.split(" ");
 var cyberneticAlpha = procarray[procarray.length]//data node
@@ -292,6 +292,8 @@ nodeCharlie = check.indexOf(cyberneticCharlie);
 if (nodeAlpha == nodeBeta){//plugset
 if (nodeAlpha == nodeCharlie){//plugset
 x = sentiencescan;
+app.ShowPopup(x );
+break;
 }
 }
 }
