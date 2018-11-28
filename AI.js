@@ -263,6 +263,8 @@ if (trial == 4){
  txt = app.ReadFile( "/sdcard/AI.txt" );//enhanced mode, for specific event situationtrial = 0;
 }
 trial++;
+
+app.WriteFile( "/sdcard/proof.txt",trace,"append");
  if (bound == 0){
  init = output2;
  }
@@ -271,7 +273,6 @@ trial++;
 	app.TextToSpeech(output, pitch, speed );
 	*/	
 
-app.WriteFile( "/sdcard/proof.txt",trace);
 	if (bound == 1){
 //cyberneticloop plugset
 for(var sentiencescan= 0;sentiencescan < sentence.length;sentiencescan++){
