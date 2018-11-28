@@ -292,7 +292,6 @@ nodeCharlie = check.indexOf(cyberneticCharlie);
 if (nodeAlpha == nodeBeta){//plugset
 if (nodeAlpha == nodeCharlie){//plugset
 x = sentiencescan;
-app.ShowPopup(x );
 break;
 }
 }
