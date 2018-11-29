@@ -1,4 +1,4 @@
-var difficulty = 0.1;
+var difficulty = 0.3;
 var init;
 var corr = "";
 var trial = 0;
@@ -16,7 +16,6 @@ var output2 = "";
 var trace = "";
 function OnStart()
 {
-
 //Nodeplug design and control suite with AI
 
 //add logic trace mechanism to produce proofs
@@ -43,12 +42,16 @@ function btnLoad_OnTouch()
  var db2 = "";
 var txt = app.ReadFile( "/sdcard/philosophy.txt" ); 
 sentence = txt.split(".");
+
+x =  Math.floor(Math.random() * (sentence.length)) + 0;
 while(0==0){
 output = "";
-for(var x = 0;x < sentence.length;x++){
+for(x = x;x < sentence.length;x++){
+output += ""
+
 //line terminator/blocking, 
 terminator = output.split(" ");
-if (terminator.length > 20){//output length
+if (terminator.length > 2){//output length
 
 trace += ";";
 break;
@@ -69,6 +72,11 @@ var word = sent.split(" ");
 if (functionorder[b] == word[a]){
 //a = b //functionorder
 var wordstr  = word[a];
+
+if(trial == 1){
+refreshermind+= wordstr + "\n";
+app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
+}
 trace += "(f:"+ wordstr + ")";
 var sent = sentence[x];
 trace += sent;
@@ -137,7 +145,13 @@ if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
 if(a > word.length/difficulty){
 output += wordstr+" ";
+var download = output.split(" ");
+var refreshermind = "";
 
+if(trial == 1){
+refreshermind+= wordstr + "\n";
+app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
+}
 trace += "(f:"+ wordstr + ")";
 edt.SetText(output);
 }
@@ -235,12 +249,7 @@ break
 }
 }
 //learning module
-var download = output.split(" ");
-var refreshermind = "";
-for (var mind = 0; mind < download.length;mind++){
-refreshermind+=  download[mind] + "\n";
-app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
-}
+
 if (output.indexOf("?") > -1){
 output2+= ".";
 }
@@ -253,7 +262,7 @@ if (trial == 1){
 
 
 var txt = app.ReadFile( "/sdcard/crit.txt" );
-txt += app.ReadFile( "/sdcard/philosophy.txt" );
+//txt += app.ReadFile( "/sdcard/philosophy.txt" );
 
 }
 if (trial == 2){
@@ -270,7 +279,7 @@ if (trial == 4){
  txt = app.ReadFile( "/sdcard/AI.txt" );//enhanced mode, for specific event situationtrial = 0;
 
 }
-trial++;
+
 
  if (bound == 0){
  init = output2;
@@ -303,5 +312,6 @@ break;
  if (bound == 0){
  bound = 1;
  }
+trial++;
 }
 }
