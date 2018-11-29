@@ -248,10 +248,13 @@ output2+= ".";
 app.WriteFile( "/sdcard/output.txt",output2, "append" );
  app.SetClipboardText( output2);
  edt2.SetText(output2);
- txt = output2;
+
 if (trial == 1){
+
+
 var txt = app.ReadFile( "/sdcard/crit.txt" );
 txt += app.ReadFile( "/sdcard/philosophy.txt" );
+
 }
 if (trial == 2){
 var txt = app.ReadFile( "/sdcard/comm.txt" );
