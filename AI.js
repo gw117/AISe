@@ -14,6 +14,7 @@ var bound = 0;
 var pos = 0;
 var output2 = "";
 var trace = "";
+
 function OnStart()
 {
 //Nodeplug design and control suite with AI
@@ -46,6 +47,7 @@ sentence = txt.split(".");
 x =  Math.floor(Math.random() * (sentence.length)) + 0;
 while(0==0){
 output = "";
+var funcsplitter = 0;
 for(x = x;x < sentence.length;x++){
 output += ""
 
@@ -103,7 +105,16 @@ break
 }
 //custom logic assembler
 var q = 0;
+
+funcsplitter++;
+if(funcsplitter == 1){
 var func = app.ReadFile( "/sdcard/noun.txt" );
+}
+if(funcsplitter == 2){
+var func = app.ReadFile( "/sdcard/function.txt" );
+funcsplitter = 0;
+}
+
 var functionorder = func.split("\n");
 for (var c = x;c < sentence.length;c++){
 c =  Math.floor(Math.random() * (sentence.length)) + 0;
@@ -161,6 +172,16 @@ edt.SetText(output);
 }
 //custom logic assembler
 var q = 0;
+
+
+funcsplitter++;
+if(funcsplitter == 1){
+var func = app.ReadFile( "/sdcard/noun.txt" );
+}
+if(funcsplitter == 2){
+var func = app.ReadFile( "/sdcard/function.txt" );
+funcsplitter = 0;
+}
 var sent = sentence[x];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
@@ -221,6 +242,16 @@ break
 }
 //custom logic assembler
 var q = 0;
+
+
+funcsplitter++;
+if(funcsplitter == 1){
+var func = app.ReadFile( "/sdcard/noun.txt" );
+}
+if(funcsplitter == 2){
+var func = app.ReadFile( "/sdcard/function.txt" );
+funcsplitter = 0;
+}
 for(var y = 0;y < sentence.length;y++){
 y =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
 var sent = sentence[y];
