@@ -1,4 +1,4 @@
-var difficulty = 0.3;
+var difficulty = 0.1;
 var init;
 var corr = "";
 var trial = 0;
@@ -53,7 +53,7 @@ output += ""
 
 //line terminator/blocking, 
 terminator = output.split(" ");
-if (terminator.length > 2){//output length
+if (terminator.length > 20){//output length
 
 trace += ";";
 break;
@@ -107,10 +107,16 @@ break
 var q = 0;
 
 funcsplitter++;
+
+
 if(funcsplitter == 1){
+var func = app.ReadFile( "/sdcard/prep.txt" );
+}
+
+if(funcsplitter == 2){
 var func = app.ReadFile( "/sdcard/noun.txt" );
 }
-if(funcsplitter == 2){
+if(funcsplitter == 3){
 var func = app.ReadFile( "/sdcard/function.txt" );
 funcsplitter = 0;
 }
