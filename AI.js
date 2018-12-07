@@ -16,6 +16,7 @@ var pos = 0;
 var output2 = "";
 var trace = "";
 
+var input = app.GetClipboardText();
 function OnStart()
 {
 //Nodeplug design and control suite with AI
@@ -28,23 +29,33 @@ app.ShowPopup("initialising" );
 
 var output = "";
 var logicordershift = 1
-	edt = app.CreateTextEdit( "", 0.96, 0.3); 
+
+
+
+	edt = app.CreateTextEdit( "", 0.96, 0.5); 
 	edt.SetTextSize(12 );
 	lay.AddChild( edt );
-	edt2= app.CreateTextEdit( "", 0.96, 0.3); 
+
+	edtin = app.CreateTextEdit( "", 0.96, 0.2); 
+	edtin.SetTextSize(12 );
+	lay.AddChild( edtin );
+
+edtin.SetText( input );
+	edt2= app.CreateTextEdit( "", 0.96, 0.2); 
 	edt2.SetTextSize(12);
 	lay.AddChild( edt2 );
 
-	edt3= app.CreateTextEdit( "", 0.96, 0.1); 
-	edt3.SetTextSize(8);
-	lay.AddChild( edt3 );
 	btnLoad = app.CreateButton( "Actuate", 0.23, 0.1 ); 
 	btnLoad.SetOnTouch( btnLoad_OnTouch ); 
 	lay.AddChild( btnLoad ); 
 	app.AddLayout( lay );
 }
 function btnLoad_OnTouch() 
-{ 
+{     
+
+
+
+
  var db2 = "";
 var txt = app.ReadFile( "/sdcard/philosophy.txt" ); 
 sentence = txt.split(".");
@@ -81,11 +92,8 @@ var word = sent.split(" ");
 if (functionorder[b] == word[a]){
 //a = b //functionorder
 var wordstr  = word[a];
-
-if(trial == 1){
 refreshermind+= wordstr + "\n";
-app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
-}
+//app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
 trace += "(f:"+ wordstr + ")";
 var sent = sentence[x];
 trace += sent;
@@ -234,10 +242,8 @@ output += wordstr+" ";
 var download = output.split(" ");
 var refreshermind = "";
 
-if(trial == 1){
 refreshermind+= wordstr + "\n";
-app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
-}
+//app.WriteFile( "/sdcard/function.txt",refreshermind,"append");
 trace += "(f:"+ wordstr + ")";
 edt.SetText(output);
 }
@@ -335,7 +341,9 @@ for(var b = 0; b < functionorder.length;b++){
 if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
+wordstr = functionorder[b];
 //a = b //functionorder
+output += wordstr += " ";
 trace += "(p:"+ wordstr + ")";
 x = c;
 difficulty = 0.7;
@@ -345,7 +353,7 @@ c = pos;
 x = Math.round(x);
 if (q == 0){
 output += "";
-if (update.length > 1){
+if (update.length > 1 && update != " "){
 var updater = app.ReadFile( "/sdcard/parameters.txt" );
 updater+= "\n" + update;
 app.WriteFile( "/sdcard/parameters.txt",updater );//logic operation updater
@@ -440,7 +448,9 @@ if (output.indexOf(wordstr) == -1){
 if(a > word.length*difficulty){
 trace +=  "(a:"+ wordstr + ")";
 output += wordstr+" ";
+if (wordstr.length > 1){
 update = wordstr;
+}
 edt.SetText(output);
 q = 1;
 }
@@ -463,7 +473,18 @@ output2+= ".";
 app.WriteFile( "/sdcard/output.txt",output2, "append" );
  app.SetClipboardText( output2);
  edt2.SetText(output2);
+txt += output2;
+txt += app.ReadFile( "/sdcard/philosophy.txt" );
+edtin.SetText(output);
 
+var dl = "";
+operator = input.split(" ");
+for (var aaaa = 0; aaaa < operator.length;aaaa++){
+var string = operator[aaaa];
+dl += string + "\n";
+}
+app.WriteFile( "/sdcard/function.txt",dl,);
+/*
 if (trial == 1){
 
 
@@ -486,7 +507,7 @@ if (trial == 4){
 
 }
 
-
+*/
  if (bound == 0){
  init = output2;
  }
