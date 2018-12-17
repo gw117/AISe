@@ -89,7 +89,7 @@ var q = 0
 var sent = sentence[x];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
-  var txt = app.ReadFile( "/sdcard/av.txt" );
+  var txt = app.ReadFile( "/sdcard/abst.txt" );
 var wordstr  = word[a];
 var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
@@ -108,7 +108,7 @@ var q = 0;
 var sent = sentence[x];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
-var txt = app.ReadFile( "/sdcard/noun.txt" );
+var txt = app.ReadFile( "/sdcard/av.txt" );
 var wordstr  = word[a];
 var vocab = txt.split("\n");
 for(var b = 0; b < vocab.length;b++){
@@ -160,7 +160,7 @@ break
 }
 }
 var q = 0;
-var func = app.ReadFile( "/sdcard/adverbs.txt" );
+var func = app.ReadFile( "/sdcard/noun.txt" );
 var functionorder = func.split("\n");
 for (var c = x;c < sentence.length;c++){
 c =  Math.floor(Math.random() * (sentence.length)) + 0;
