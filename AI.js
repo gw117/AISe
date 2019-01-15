@@ -111,6 +111,45 @@ if (q == 1){
 break
 }
 }
+
+
+
+var q = 0;
+var func = app.ReadFile( "/sdcard/noun.txt" );
+var functionorder = func.split("\n");
+for (var c = x;c < sentence.length;c++){
+c =  Math.floor(Math.random() * (sentence.length)) + 0;
+var sent = sentence[c];
+var word = sent.split(" ");
+for(var a = 0;a < word.length;a++){
+for(var b = 0; b < functionorder.length;b++){
+//b =  Math.floor(Math.random() * (func.length)) + 0;
+if(sent.indexOf(functionorder[b]) > -1){
+var sent = sentence[c];
+var word = sent.split(" ");
+x = c/5;
+c = pos;
+x = Math.round(x);
+if (q == 0){
+output += "";
+if (update.length > 1){
+var updater = app.ReadFile( "/sdcard/parameters.txt" );
+updater+= "\n" + update;
+app.WriteFile( "/sdcard/parameters.txt",updater );
+}
+}
+q = 1;
+break;
+}
+}
+if (q == 1){
+break
+}
+}
+if (q == 1){
+break
+}
+}
 var q = 0;
 var sent = sentence[x];
 var word = sent.split(" ");
@@ -139,7 +178,7 @@ var sent = sentence[c];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
 for(var b = 0; b < functionorder.length;b++){
-b =  Math.floor(Math.random() * (func.length)) + 0;
+//b =  Math.floor(Math.random() * (func.length)) + 0;
 if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
@@ -175,7 +214,7 @@ var sent = sentence[c];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
 for(var b = 0; b < functionorder.length;b++){
-b =  Math.floor(Math.random() * (func.length)) + 0;
+//b =  Math.floor(Math.random() * (func.length)) + 0;
 if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
