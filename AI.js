@@ -89,9 +89,9 @@ var q = 0
 var sent = sentence[x];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
-  var txt = app.ReadFile( "/sdcard/abst.txt" );
+  var txt2 = app.ReadFile( "/sdcard/abst.txt" );
 var wordstr  = word[a];
-var vocab = txt.split("\n");
+var vocab = txt2.split("\n");
 for(var b = 0; b < vocab.length;b++){
 if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
@@ -154,9 +154,9 @@ var q = 0;
 var sent = sentence[x];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
-var txt = app.ReadFile( "/sdcard/av.txt" );
+var txt2 = app.ReadFile( "/sdcard/av.txt" );
 var wordstr  = word[a];
-var vocab = txt.split("\n");
+var vocab = txt2.split("\n");
 for(var b = 0; b < vocab.length;b++){
 if(wordstr == vocab[b]){
 if (output.indexOf(wordstr) == -1){
@@ -218,7 +218,24 @@ for(var b = 0; b < functionorder.length;b++){
 if(sent.indexOf(functionorder[b]) > -1){
 var sent = sentence[c];
 var word = sent.split(" ");
+
+var wordstr  = word[a];
+var vocab = func.split("\n");
+for(var b = 0; b < func.length;b++){
+if(wordstr == func[b]){
+if (output.indexOf(wordstr) == -1){
+if (wordstr.indexOf(sent) == -1){
+edtin.SetText(wordstr);
+}
+update = wordstr;
+edt.SetText(output);
+app.SetClipboardText( output);
+q = 1;
+}
+}
+}
 //a = b //functionorder
+
 x = c;
 if (q == 0){
 output += "";
