@@ -37,7 +37,7 @@ function btnLoad_OnTouch()
  var db2 = "";
 while(0==0){
 output = "";
-var txt = app.ReadFile( "/sdcard/philosophy.txt" );
+var txt = app.ReadFile( "/sdcard/test.txt" );
 sentence = txt.split(".");
 var input = edtin.GetText();
 x = txt.indexOf(input);
@@ -84,7 +84,7 @@ if (q == 1){
 break
 }
 }
-var txt = app.ReadFile( "/sdcard/philosophy.txt" );
+var txt = app.ReadFile( "/sdcard/test.txt" );
 var q = 0
 var sent = sentence[x];
 var word = sent.split(" ");
@@ -254,7 +254,7 @@ break
 }
 var q = 0;
 for(var y = 0;y < sentence.length;y++){
-y =  Math.floor(Math.random() * (sentence.length - 0 + 1)) + 0
+y =  Math.floor(Math.random() * (sentence.length)) + 0
 var sent = sentence[y];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
