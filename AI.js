@@ -99,7 +99,7 @@ if (wordstr.indexOf(sent) == -1){
 output += wordstr+" ";
 }
 edt.SetText(output);
-app.SetClipboardText( output);
+
 }
 
 q = 1;
@@ -164,7 +164,7 @@ if (wordstr.indexOf(sent) == -1){
 output += wordstr+" ";
 }
 edt.SetText(output);
-app.SetClipboardText( output);
+
 }
 }
 }
@@ -229,7 +229,7 @@ edtin.SetText(wordstr);
 }
 update = wordstr;
 edt.SetText(output);
-app.SetClipboardText( output);
+
 q = 1;
 }
 }
@@ -269,7 +269,7 @@ output += wordstr+" ";
 }
 update = wordstr;
 edt.SetText(output);
-app.SetClipboardText( output);
+
 q = 1;
 }
 }
@@ -295,5 +295,6 @@ output2+= ".";
 }
  output2 += output +  "\n";
  edt2.SetText(output2);
+ app.SetClipboardText( output2);
 }
 }
