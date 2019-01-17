@@ -9,6 +9,7 @@ var stage = 0;
 var depth = 3;
 var pos = 0;
 var output2 = "";
+var c = 0;
 function OnStart()
 {
 
@@ -56,8 +57,9 @@ break;
 var q = 0;
 var func = app.ReadFile( "/sdcard/function.txt" );
 var functionorder = func.split("\n");
-for (var c = x;c < sentence.length;c++){
-c =  Math.floor(Math.random() * (sentence.length)) + 0;
+
+while (c < sentence.length){
+//c =  Math.floor(Math.random() * (sentence.length)) + 0;
 var sent = sentence[c];
 var word = sent.split(" ");
 for(var a = 0;a < word.length;a++){
@@ -69,13 +71,22 @@ var word = sent.split(" ");
 x = c/5;
 pos = c;
 x = Math.round(x);
+
+if (output.indexOf(wordstr) == -1){
+if (wordstr.indexOf(sent) == -1){
+output += wordstr+" ";
+}
+edt.SetText(output);
+app.ShowPopup( "*" );
+
+}
 if (q == 0){
 output += "";
 }
 q = 1;
-break;
 }
 }
+c++;
 if (q == 1){
 break
 }
