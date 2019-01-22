@@ -12,8 +12,8 @@ var longcyc = 2;
 var longcyc2 = 3;//+1 or 2
 var minPeriod = 1;
 var corr = 0; //batch count
-var x = 0.2;
-var y = 0.3;
+var x = 0.8;
+var y = 1;
 var Do = 0;
 var Do2 = 0;
 var it = 0;
@@ -34,6 +34,37 @@ var output = "";
 var ghostprotocollast = 0;
 var GhostIterate =0;
 var testchecknum = 244939252;//341881320659934023674980; //18537;
+
+
+var randd = "";
+var r = 0;
+var txt = app.ReadFile( "/sdcard/philosophy.txt" );
+sentence = txt.split(".");
+
+for (var g = 0; g < 500;g++){
+randd +=  Math.floor(Math.random() * (sentence.length)) + ",";
+}
+
+
+
+
+
+//AI stuff
+
+var output = "";
+var update = "";
+var sentence1 = "";
+var sentence2 = "";
+var sentence = "";
+var filesave = ""
+var stage = 0;
+var depth = 3;
+var pos = 0;
+var output2 = "";
+var c = 0;
+var function1 = "";
+
+
 function OnStart()
 {   
 	app.SetOrientation( "Landscape" );
@@ -41,16 +72,32 @@ function OnStart()
 	lay = app.CreateLayout( "Frame" );	
 	cam = app.CreateCameraView( x, y);	
 	lay.AddChild( cam );  
-	btn = app.CreateButton( "Send", 0.4, 0.1 );
+	btn = app.CreateButton( "Send", 0.2, 0.1 );
 	btn.SetOnTouch(  btn_OnTouch);
-  btn.SetMargins( 0.5, 0.02, 0, 0 );
+  btn.SetMargins( 0.8, 0.02, 0, 0 );
   lay.AddChild( btn);
-	edt = app.CreateTextEdit( "", 0.96, 0.4 ); 
-	edt.SetBackColor( "#333333" );
+  
+  
+ 	edtin= app.CreateTextEdit( "", 0.0, 0.0 ); 
+	edtin.SetTextSize(8);
+	edtin.SetMargins( 0.0, 0.5, 0, 0 );
+	lay.AddChild( edtin ); 
+	
+	edtq= app.CreateTextEdit( "", 0.2, 0.2 ); 
+	edtq.SetTextSize(8);
+	edtq.SetMargins( 0.0, 0.2, 0, 0 );
+	lay.AddChild( edtq ); 
+ 
+ 
+ 	edt= app.CreateTextEdit( "", 0.2, 0.2 ); 
 	edt.SetTextSize(8);
 	edt.SetMargins( 0.0, 0.5, 0, 0 );
 	lay.AddChild( edt ); 
- 
+	
+		edt2= app.CreateTextEdit( "", 0.2, 0.2 ); 
+	edt2.SetTextSize(8);
+	edt2.SetMargins( 0.0, 0.8, 0, 0 );
+	lay.AddChild( edt2 ); 
     crypt = app.CreateCrypt();
 for(var a = 0; a < 100;a++){
 var b =  Math.floor(Math.random() * (2)) + 0;
@@ -308,7 +355,7 @@ if (wordstr.indexOf(sent) == -1){
 output += wordstr+" ";
 function1 = wordstr;
 }
-//edt.SetText(output);
+edt.SetText(output);
 
 
 }
@@ -341,7 +388,7 @@ if (output.indexOf(wordstr) == -1){
 if (wordstr.indexOf(sent) == -1){
 output += wordstr+" ";
 }
-//edt.SetText(output);
+edt.SetText(output);
 
 }
 
@@ -406,7 +453,7 @@ if (output.indexOf(wordstr) == -1){
 if (wordstr.indexOf(sent) == -1){
 output += wordstr+" ";
 }
-//edt.SetText(output);
+edt.SetText(output);
 
 }
 }
@@ -472,7 +519,7 @@ if (wordstr.indexOf(sent) == -1){
 edtin.SetText(wordstr);
 }
 update = wordstr;
-//edt.SetText(output);
+edt.SetText(output);
 
 q = 1;
 }
@@ -513,7 +560,7 @@ if (wordstr.indexOf(sent) == -1){
 output += wordstr+" ";
 }
 update = wordstr;
-//edt.SetText(output);
+edt.SetText(output);
 
 q = 1;
 }
@@ -539,10 +586,9 @@ if (output.indexOf("?") > -1){
 output2+= ".";
 }
  output2 += output +  "\n";
- //edt2.SetText(output2);
+ edt2.SetText(output2);
  app.SetClipboardText( output2);
 }
-
 
 
 
