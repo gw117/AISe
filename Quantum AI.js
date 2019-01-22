@@ -563,7 +563,7 @@ var input = outarr[outarr.length] ;
 
 
 var crc  = crc32(input);
-app.ShowPopup( string );
+app.ShowPopup( crc );
 input+=crc;
 
 
