@@ -74,6 +74,7 @@ var output2 = "";
 var c = 0;
 var function1 = "";
 var testout = "economic";
+var context = "wisdom";
 
 function OnStart() {
 var stringrand  = app.ReadFile("/sdcard/seed.txt");
@@ -335,7 +336,7 @@ for(var n = 0;n<check.length;n++){
 if (n == (ghostprotocol*range)+qdata){
 
 checkstring += check[n-8] + ",";
-if (n == (ghostprotocol*range)+qdata+32){
+if (n == (ghostprotocol*range)+qdata+32){//currently testing automatic connectivity between the quantum algorithm hyperdeteministic search and loading seed/nonce results to load appropriate AI responses
 stringrand = checkstring;
 app.WriteFile( "/sdcard/seed.txt", checkstring);
 break;
@@ -663,7 +664,7 @@ function OnAlarm(id) {
 
     var input = outarr[outarr.length];
     
-    if (input == testout){//iterate
+    if (input == testout && output.indexOf(context) > -1){//iterate
     break;
     }
       }
