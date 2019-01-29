@@ -73,8 +73,8 @@ var pos = 0;
 var output2 = "";
 var c = 0;
 var function1 = "";
-var testout = "economic";
-var context = "wisdom";
+var testout = "faulty";
+var context = "proof";
 
 function OnStart() {
 var stringrand  = app.ReadFile("/sdcard/seed.txt");
