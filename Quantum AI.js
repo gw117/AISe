@@ -37,6 +37,7 @@ var ghostprotocollast = 0;
 var GhostIterate = 0;
 var testchecknum = 0//573210623968572906089346317034273080; //341881320659934023674980; //18537;
 var qdata = 0;
+var adone = 0;
 
 //to perform series computation to narrow approximation after each computation decrease range and add into qdata
 
@@ -106,13 +107,17 @@ var stringrand  = app.ReadFile("/sdcard/seed.txt");
     edtin.SetTextSize(8);
     edtin.SetMargins(0.0, 0.5, 0, 0);
     lay.AddChild(edtin);
+      edtcontext = app.CreateTextEdit("", 0.2, 0.1);
+    edtcontext.SetTextSize(8);
+    edtcontext.SetMargins(0.7, 0.15, 0, 0);
+    lay.AddChild(edtcontext);
     edtq = app.CreateTextEdit("", 0.4, 1);
     edtq.SetTextSize(6);
   //  edtq.SetMargins(0.0, 0.2, 0, 0);
     lay.AddChild(edtq);
-    edt = app.CreateTextEdit("", 0.3, 0.4);
+    edt = app.CreateTextEdit("", 0.3, 0.2);
     edt.SetTextSize(8);
-    edt.SetMargins(0.5, 0.2, 0, 0);
+    edt.SetMargins(0.5, 0.3, 0, 0);
     lay.AddChild(edt);
     edt2 = app.CreateTextEdit("", 0.3, 0.4);
     edt2.SetTextSize(8);
@@ -127,6 +132,7 @@ var stringrand  = app.ReadFile("/sdcard/seed.txt");
 }
 
 function StartDetection() {
+context = edtcontext.GetText();
     var w = cam.GetImageWidth();
     var h = cam.GetImageHeight();
     img = app.CreateImage(null, x, y, "Fix", w, h);
@@ -312,6 +318,7 @@ function OnMotion(data) //stream camera data
             cyc++;
             app.ShowPopup("Ghost protocol++ ->" + ghostprotocol);
             prime++;
+            if (adone==0){
             if (prime > 1 && ghostprotocol > 3) {
                 if (GhostIterate == 0) {
                     ghostprotocollast = ghostprotocol;
@@ -328,6 +335,7 @@ function OnMotion(data) //stream camera data
                 if ((ghostprotocol * range) +qdata == (ghostprotocollast + range)+qdata  ) {
                     ghostprotocollast = ghostprotocol;
                     GhostIterate = 0;
+                    adone = 1;
                     outputq += "******\n";
                     
          var checkstring = "";           
@@ -361,6 +369,7 @@ break;
                 }
             }
             ghostprotocol++; //This iterates multiverses supposedly...
+            }
         }
     }
 }
