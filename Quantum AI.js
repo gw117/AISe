@@ -107,21 +107,26 @@ var stringrand  = app.ReadFile("/sdcard/seed.txt");
     edtin.SetTextSize(8);
     edtin.SetMargins(0.0, 0.5, 0, 0);
     lay.AddChild(edtin);
-      edtcontext = app.CreateTextEdit("", 0.2, 0.1);
+      edtcontext = app.CreateTextEdit("context", 0.2, 0.1);
     edtcontext.SetTextSize(8);
     edtcontext.SetMargins(0.7, 0.15, 0, 0);
     lay.AddChild(edtcontext);
+    
+      edtcausation = app.CreateTextEdit("causation", 0.2, 0.1);
+    edtcausation.SetTextSize(8);
+    edtcausation.SetMargins(0.7, 0.25, 0, 0);
+    lay.AddChild(edtcausation);
     edtq = app.CreateTextEdit("", 0.4, 1);
     edtq.SetTextSize(6);
   //  edtq.SetMargins(0.0, 0.2, 0, 0);
     lay.AddChild(edtq);
     edt = app.CreateTextEdit("", 0.3, 0.2);
     edt.SetTextSize(8);
-    edt.SetMargins(0.5, 0.3, 0, 0);
+    edt.SetMargins(0.5, 0.4, 0, 0);
     lay.AddChild(edt);
     edt2 = app.CreateTextEdit("", 0.3, 0.4);
     edt2.SetTextSize(8);
-    edt2.SetMargins(0.5, 0.5, 0, 0);
+    edt2.SetMargins(0.5, 0.6, 0, 0);
     lay.AddChild(edt2);
     crypt = app.CreateCrypt();
     for (var a = 0; a < 100; a++) {
@@ -382,7 +387,8 @@ function btn_OnTouch() {
 function OnAlarm(id) {
     //do calculation, efficiency does not matter so we can do it again and again.
 
-
+testout = edtcontext.GetText();
+context = edtcausation.GetText();
 
     var db2 = "";
     while (0 == 0) {
@@ -673,8 +679,15 @@ function OnAlarm(id) {
 
     var input = outarr[outarr.length];
     
-    if (input == testout && output.indexOf(context) > -1){//iterate
-    break;
+    if (input == testout && output.indexOf(context) > -1 &&  output.indexOf(context) < output.indexOf(causation)){//iterate
+  
+   
+    
+      break;
+    
+    
+    
+    
     }
       }
 
