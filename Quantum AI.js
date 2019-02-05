@@ -387,8 +387,8 @@ function btn_OnTouch() {
 function OnAlarm(id) {
     //do calculation, efficiency does not matter so we can do it again and again.
 
-testout = edtcontext.GetText();
-context = edtcausation.GetText();
+context  = edtcontext.GetText();
+causation = edtcausation.GetText();
 
     var db2 = "";
     while (0 == 0) {
