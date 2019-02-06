@@ -400,7 +400,7 @@ causation = edtcausation.GetText();
         x = txt.indexOf(input);
         for (var x = 0; x < sentence.length; x++) {
             terminator = output.split(" ");
-            if (terminator.length > 8) {
+            if (terminator.length > 7) {
                 filesave += output + "\n";
                 if (stage == depth) {
                     x = pos - pos / 5;
@@ -454,6 +454,30 @@ causation = edtcausation.GetText();
                     break
                 }
             }
+            var q = 0;
+            var sent = sentence[x];
+            var word = sent.split(" ");
+            for (var a = 0; a < word.length; a++) {
+                var txt2 = app.ReadFile("/sdcard/av.txt");
+                var wordstr = word[a];
+                var vocab = txt2.split("\n");
+                for (var b = 0; b < vocab.length; b++) {
+                    if (wordstr == vocab[b]) {
+                        if (output.indexOf(wordstr) == -1) {
+                            if (wordstr.indexOf(sent) == -1) {
+                                if (wordstr != "6") {
+                                output += wordstr + " ";
+                                }
+                            }
+                            edt.SetText(output);
+
+                        }
+                    }
+                }
+            }
+            
+            
+            
             var txt = app.ReadFile("/sdcard/philosophy.txt");
             var q = 0
             var sent = sentence[x];
@@ -486,27 +510,6 @@ causation = edtcausation.GetText();
 
 
 
-            var q = 0;
-            var sent = sentence[x];
-            var word = sent.split(" ");
-            for (var a = 0; a < word.length; a++) {
-                var txt2 = app.ReadFile("/sdcard/av.txt");
-                var wordstr = word[a];
-                var vocab = txt2.split("\n");
-                for (var b = 0; b < vocab.length; b++) {
-                    if (wordstr == vocab[b]) {
-                        if (output.indexOf(wordstr) == -1) {
-                            if (wordstr.indexOf(sent) == -1) {
-                                if (wordstr != "6") {
-                                output += wordstr + " ";
-                                }
-                            }
-                            edt.SetText(output);
-
-                        }
-                    }
-                }
-            }
             var q = 0;
             var func = app.ReadFile("/sdcard/parameters.txt");
             var functionorder = func.split("\n");
@@ -651,9 +654,9 @@ causation = edtcausation.GetText();
 
     var input = outarr[outarr.length];
     
-    if (input == testout && output.indexOf(context) > -1 &&  output.indexOf(context) < output.indexOf(causation)){//iterate
+    if (input == testout && output.indexOf(context) > -1 &&  output.indexOf(context) > output.indexOf(causation)){//iterate
   
-   if (output.indexOf("cognition") > -1 && output.indexOf("logic") > -1 && output.indexOf("reason") > -1 && output.indexOf("thought") > -1 && output.indexOf("aware") > -1){
+   if (output.indexOf("cognition") < output.indexOf(context) && output.indexOf(context) < output.indexOf("thought") &&  output.indexOf("thought") < output.indexOf("use") && output.indexOf("use") < output.indexOf("function") && output.indexOf("function") < output.indexOf("object")){
     
       break;
     }
