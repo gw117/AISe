@@ -93,6 +93,11 @@ var stringrand  = app.ReadFile("/sdcard/seed.txt");
     btns.SetOnTouch(btns_OnTouch);
     btns.SetMargins(0.6, 0.02, 0, 0);
     lay.AddChild(btns);
+    
+    btnl = app.CreateButton("load", 0.2, 0.1);
+    btnl.SetOnTouch(btnl_OnTouch);
+    btnl.SetMargins(0.8, 0.2, 0, 0);
+    lay.AddChild(btnl);
     var functionstring  = app.ReadFile("/sdcard/adj.txt");
     functionarr = functionstring.split("\n");
     functionstring ="";
@@ -109,14 +114,14 @@ var stringrand  = app.ReadFile("/sdcard/seed.txt");
     lay.AddChild(edtin);
       edtcontext = app.CreateTextEdit("context", 0.2, 0.1);
     edtcontext.SetTextSize(8);
-    edtcontext.SetMargins(0.7, 0.15, 0, 0);
+    edtcontext.SetMargins(0.5, 0.15, 0, 0);
     lay.AddChild(edtcontext);
     
       edtcausation = app.CreateTextEdit("causation", 0.2, 0.1);
     edtcausation.SetTextSize(8);
-    edtcausation.SetMargins(0.7, 0.25, 0, 0);
+    edtcausation.SetMargins(0.5, 0.25, 0, 0);
     lay.AddChild(edtcausation);
-    edtq = app.CreateTextEdit("", 0.4, 1);
+    edtq = app.CreateTextEdit("", 0.2, 1);
     edtq.SetTextSize(6);
   //  edtq.SetMargins(0.0, 0.2, 0, 0);
     lay.AddChild(edtq);
@@ -158,6 +163,11 @@ testout = item;
 
 function btns_OnTouch() {
     setTimeout("StartDetection()", 1000); //initiate camera stream function
+}
+
+
+function btnl_OnTouch() {
+stringrand = app.ReadFile("/sdcard/seed.txt");
 }
 
 
@@ -346,12 +356,13 @@ function OnMotion(data) //stream camera data
          var checkstring = "";           
 var check = stringrand.split(",");
 for(var n = 0;n<check.length;n++){
-if (n == (ghostprotocol*range)+qdata){
+if (n >= (ghostprotocol*range)+qdata){
 
 checkstring += check[n-8] + ",";
 if (n == (ghostprotocol*range)+qdata+32){//currently testing automatic connectivity between the quantum algorithm hyperdeteministic search and loading seed/nonce results to load appropriate AI responses
 stringrand = checkstring;
 app.WriteFile( "/sdcard/seed.txt", checkstring);
+app.SetClipboardText(checkstring );
 break;
 }
 
@@ -393,6 +404,9 @@ causation = edtcausation.GetText();
     var db2 = "";
     while (0 == 0) {
         output = "";
+        
+	var pitch = 1.0, speed = 1.0;
+
         var txt = app.ReadFile("/sdcard/philosophy.txt");
         sentence = txt.split(".");
        
@@ -402,6 +416,7 @@ causation = edtcausation.GetText();
             terminator = output.split(" ");
             if (terminator.length > 7) {
                 filesave += output + "\n";
+                
                 if (stage == depth) {
                     x = pos - pos / 5;
                     stage = 0;
@@ -432,6 +447,7 @@ causation = edtcausation.GetText();
                                 if (wordstr.indexOf(sent) == -1) {
                                    if (wordstr != "6") {
                                     output += wordstr + " ";
+          
                                     function1 = wordstr;
                                 }
                                 }
@@ -467,6 +483,7 @@ causation = edtcausation.GetText();
                             if (wordstr.indexOf(sent) == -1) {
                                 if (wordstr != "6") {
                                 output += wordstr + " ";
+                             
                                 }
                             }
                             edt.SetText(output);
@@ -492,6 +509,7 @@ causation = edtcausation.GetText();
                             if (wordstr.indexOf(sent) == -1) {
                                 if (wordstr != "6") {
                                 output += wordstr + " ";
+                            
                                 }
                             }
                             edt.SetText(output);
@@ -618,6 +636,7 @@ causation = edtcausation.GetText();
                                 if (wordstr.indexOf(sent) == -1) {
                                     if (wordstr != "6") {
                                     output += wordstr + " ";
+                              
                                     }
                                 }
                                 update = wordstr;
