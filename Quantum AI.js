@@ -718,6 +718,8 @@ app.SetClipboardText(input );
             var b = 9;
             numa += b + ","; //quantum disruption
         }
+        
+check = numa.split(",");
     }
 }
 //convert ascii data into decimal then use the ghost protocol to check the number, then convert back to ascii.
